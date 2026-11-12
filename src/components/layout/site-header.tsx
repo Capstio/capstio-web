@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Button, DownloadButton, Logo } from "@/components/ui";
@@ -33,17 +33,12 @@ type SiteHeaderProps = {
     | "languages"
     | "languagesShort"
   >;
-  announcement?: boolean;
 };
 
 const navTrigger =
   "type-small inline-flex h-9 items-center gap-1 rounded-md px-3 font-medium text-body transition-colors hover:text-heading motion-reduce:transition-none";
 
-export function SiteHeader({
-  lang,
-  dict,
-  announcement = true,
-}: SiteHeaderProps) {
+export function SiteHeader({ lang, dict }: SiteHeaderProps) {
   const headerRef = useRef<HTMLElement>(null);
   const pillRef = useRef<HTMLDivElement>(null);
   const [openMenu, setOpenMenu] = useState<MenuId | null>(null);
@@ -131,7 +126,6 @@ export function SiteHeader({
     setMobileOpen(false);
   };
   const href = (path: string) => localizedHref(lang, path);
-  const showBar = announcement && !compact && !mobileOpen;
 
   const ctaButton = (className?: string) => (
     <DownloadButton
@@ -151,10 +145,7 @@ export function SiteHeader({
     <header
       ref={headerRef}
       // Reserves the space of the bar so the fixed header never covers content.
-      className={cn(
-        "relative z-50",
-        announcement ? "h-26 lg:h-28" : "h-16 lg:h-18",
-      )}
+      className="relative z-50 h-16 lg:h-18"
     >
       <div
         className={cn(
@@ -162,22 +153,6 @@ export function SiteHeader({
           compact && "px-3 pt-3 lg:px-4 lg:pt-4",
         )}
       >
-        {showBar && (
-          <div
-            data-surface="dark"
-            className="type-caption flex h-10 items-center justify-center gap-3 border-b border-line px-4 text-center text-white"
-          >
-            <span>{dict.header.announcement}</span>
-            <Link
-              href={href(topLinkHref.releaseNotes)}
-              className="inline-flex items-center gap-1 font-medium text-accent hover:underline"
-            >
-              {dict.header.announcementLink}
-              <ArrowRight aria-hidden="true" className="size-3.5" />
-            </Link>
-          </div>
-        )}
-
         <div
           ref={pillRef}
           data-surface={compact && overDark ? "dark" : undefined}

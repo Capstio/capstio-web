@@ -18,8 +18,6 @@
   "languages": { "vi": "Tiếng Việt", "en": "English" },
   "languagesShort": { "vi": "VI", "en": "EN" },
   "header": {
-    "announcement": "The first beta is coming soon.",
-    "announcementLink": "See release notes",
     "nav": {
       "features": "Features",
       "solutions": "Solutions",

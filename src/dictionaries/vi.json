@@ -18,8 +18,6 @@
   "languages": { "vi": "Tiếng Việt", "en": "English" },
   "languagesShort": { "vi": "VI", "en": "EN" },
   "header": {
-    "announcement": "Bản beta đầu tiên sắp ra mắt.",
-    "announcementLink": "Xem Release notes",
     "nav": {
       "features": "Tính năng",
       "solutions": "Giải pháp",
