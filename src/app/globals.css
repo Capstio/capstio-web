@@ -1,0 +1,421 @@
+@import "tailwindcss";
+
+/*
+ * Capstio design tokens for the marketing website.
+ * Source of truth: the "Foundations" section of the Capstio Figma file
+ * (color primitives, semantic tokens, color contexts, typography, layout).
+ *
+ * Layers:
+ *   1. Primitives  - raw values, registered in @theme. Pages never use them directly.
+ *   2. Semantic    - role based variables (--bg-page, --text-body ...) switched per theme.
+ *   3. Contexts    - data-surface="light|subtle|dark" blocks that pick one semantic set.
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------- 1. Primitives */
+
+@theme static {
+  --color-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --font-*: initial;
+
+  /* Neutral */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #2e2e2e;
+  --color-neutral-800: #1f1f1f;
+  --color-neutral-900: #141414;
+  --color-neutral-950: #0a0a0a;
+  --color-neutral-1000: #000000;
+
+  /* Blue (brand ring of the logo is blue-600) */
+  --color-blue-50: #e8eefc;
+  --color-blue-100: #d3dffa;
+  --color-blue-200: #afc4f5;
+  --color-blue-300: #86a5ee;
+  --color-blue-400: #5f86e5;
+  --color-blue-500: #4570dc;
+  --color-blue-600: #2f5bd3;
+  --color-blue-700: #2549b0;
+  --color-blue-800: #1e3b8e;
+  --color-blue-900: #182f70;
+  --color-blue-950: #101f4b;
+
+  /* Mint (signal dot of the logo is mint-500, mint-300 on dark) */
+  --color-mint-50: #e7fbf5;
+  --color-mint-100: #c6f5e9;
+  --color-mint-200: #93ebd7;
+  --color-mint-300: #5fe0c3;
+  --color-mint-400: #3fd2b1;
+  --color-mint-500: #2ec4a0;
+  --color-mint-600: #1fa284;
+  --color-mint-700: #0f7a64;
+  --color-mint-800: #0e6251;
+  --color-mint-900: #0d4f42;
+  --color-mint-950: #08332b;
+
+  /* Slate (cool neutral used on light surfaces) */
+  --color-slate-0: #ffffff;
+  --color-slate-50: #f6f8fc;
+  --color-slate-100: #ecf0f8;
+  --color-slate-200: #dee3ef;
+  --color-slate-300: #b9c4dc;
+  --color-slate-400: #8e99b3;
+  --color-slate-500: #6b7280;
+  --color-slate-600: #4d5670;
+  --color-slate-700: #3a4259;
+  --color-slate-800: #2a3148;
+  --color-slate-900: #1a2036;
+  --color-slate-950: #14161c;
+
+  /* Status ramps (only the steps the design uses) */
+  --color-red-50: #fff5f4;
+  --color-red-300: #fda29b;
+  --color-red-600: #b42318;
+  --color-red-950: #3b1712;
+  --color-amber-50: #fff9f0;
+  --color-amber-300: #fcd34d;
+  --color-amber-600: #b45309;
+  --color-amber-950: #3a2508;
+  --color-green-50: #f2fbf6;
+  --color-green-300: #6ce9a6;
+  --color-green-600: #067647;
+  --color-green-950: #0b3324;
+
+  /* Semantic colors, resolved per theme in section 2 (token names mirror Figma) */
+  --color-page: var(--bg-page);
+  --color-subtle: var(--bg-subtle);
+  --color-surface: var(--bg-surface);
+  --color-code: var(--bg-code);
+  --color-terminal: var(--bg-terminal);
+  --color-heading: var(--text-heading);
+  --color-body: var(--text-body);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--text-accent);
+  --color-link: var(--text-link);
+  --color-on-action: var(--text-on-action);
+  --color-action: var(--action-primary);
+  --color-action-hover: var(--action-primary-hover);
+  --color-focus: var(--action-focus);
+  --color-line: var(--border-default);
+  --color-line-strong: var(--border-strong);
+  --color-signal: var(--accent-signal);
+  --color-success: var(--status-success);
+  --color-warning: var(--status-warning);
+  --color-danger: var(--status-danger);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* Elevation (neutral black shadows) */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.08);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 16px 40px rgb(0 0 0 / 0.14);
+  --shadow-window: 0 24px 64px rgb(0 0 0 / 0.22);
+
+  /* Fonts (variables come from next/font in the root layout) */
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:
+    var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Breakpoints: mobile 390, tablet 768, desktop 1440 grid */
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+}
+
+/*
+ * Spacing uses Tailwind's default 4px scale, which matches the Figma scale 1:1:
+ * space/1 = p-1 (4), space/2 = p-2 (8), space/3 = p-3 (12), space/4 = p-4 (16),
+ * space/6 = p-6 (24), space/8 = p-8 (32), space/12 = p-12 (48), space/16 = p-16 (64),
+ * space/24 = p-24 (96), space/32 = p-32 (128).
+ */
+
+/* ----------------------------------------------------------------- 2. Semantic */
+
+:root {
+  color-scheme: light;
+
+  --bg-page: var(--color-slate-0);
+  --bg-subtle: var(--color-slate-50);
+  --bg-surface: var(--color-slate-0);
+  --bg-code: var(--color-slate-100);
+  --bg-terminal: var(--color-neutral-1000);
+
+  --text-heading: var(--color-slate-950);
+  --text-body: var(--color-slate-800);
+  --text-muted: var(--color-slate-500);
+  --text-accent: var(--color-mint-700);
+  --text-link: var(--color-blue-600);
+  --text-on-action: var(--color-slate-0);
+
+  --action-primary: var(--color-blue-600);
+  --action-primary-hover: var(--color-blue-700);
+  --action-focus: var(--color-blue-500);
+
+  --border-default: var(--color-slate-200);
+  --border-strong: var(--color-slate-500);
+
+  --accent-signal: var(--color-mint-500);
+  --status-success: var(--color-green-600);
+  --status-warning: var(--color-amber-600);
+  --status-danger: var(--color-red-600);
+
+  /* Logo mark colors: ring + signal dot */
+  --logo-ring: var(--color-blue-600);
+  --logo-dot: var(--color-mint-500);
+
+  /* Glass header tint (see Header / Scrolled glass in Figma) */
+  --glass-tint: rgb(255 255 255 / 0.8);
+}
+
+/* Dark theme, and the Dark context block which keeps dark values in both themes. */
+:root.dark,
+[data-surface="dark"] {
+  color-scheme: dark;
+
+  --bg-page: var(--color-neutral-1000);
+  --bg-subtle: var(--color-neutral-950);
+  --bg-surface: var(--color-neutral-900);
+  --bg-code: var(--color-neutral-950);
+  --bg-terminal: var(--color-neutral-950);
+
+  --text-heading: var(--color-slate-0);
+  --text-body: var(--color-neutral-200);
+  --text-muted: var(--color-neutral-400);
+  --text-accent: var(--color-mint-300);
+  --text-link: var(--color-blue-300);
+  --text-on-action: var(--color-slate-0);
+
+  --action-primary: var(--color-blue-600);
+  --action-primary-hover: var(--color-blue-700);
+  --action-focus: var(--color-blue-300);
+
+  --border-default: var(--color-neutral-700);
+  --border-strong: var(--color-neutral-500);
+
+  --accent-signal: var(--color-mint-300);
+  --status-success: var(--color-green-300);
+  --status-warning: var(--color-amber-300);
+  --status-danger: var(--color-red-300);
+
+  --logo-ring: var(--color-slate-0);
+  --logo-dot: var(--color-mint-300);
+
+  --glass-tint: rgb(20 20 20 / 0.8);
+}
+
+/* ----------------------------------------------------------------- 3. Contexts */
+
+/*
+ * A page block picks exactly one context. Light is bg/page, Subtle is bg/subtle,
+ * Dark forces the dark token set regardless of the active theme.
+ */
+@layer base {
+  [data-surface] {
+    background-color: var(--bg-page);
+    color: var(--text-body);
+  }
+
+  [data-surface="subtle"] {
+    background-color: var(--bg-subtle);
+  }
+}
+
+/* ------------------------------------------------------------------ Typography */
+
+/*
+ * Type scale from Figma: desktop is "size / line-height / weight / tracking",
+ * mobile only changes size and line-height. Tracking is stored in em so it
+ * scales with the size. Utilities are prefixed with "type-" so they never
+ * collide with the semantic color utilities such as text-body.
+ */
+@utility type-display {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.0234em;
+  @media (min-width: 48rem) {
+    font-size: 4rem;
+    line-height: 4.5rem;
+  }
+}
+
+@utility type-h1 {
+  font-size: 2.125rem;
+  line-height: 2.625rem;
+  font-weight: 700;
+  letter-spacing: -0.0208em;
+  @media (min-width: 48rem) {
+    font-size: 3rem;
+    line-height: 3.625rem;
+  }
+}
+
+@utility type-h2 {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.0167em;
+  @media (min-width: 48rem) {
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+  }
+}
+
+@utility type-h3 {
+  font-size: 1.375rem;
+  line-height: 1.875rem;
+  font-weight: 600;
+  letter-spacing: -0.0083em;
+  @media (min-width: 48rem) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@utility type-h4 {
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  font-weight: 600;
+  @media (min-width: 48rem) {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+@utility type-body-l {
+  font-size: 1.0625rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+  @media (min-width: 48rem) {
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+  }
+}
+
+@utility type-body {
+  font-size: 1rem;
+  line-height: 1.625rem;
+  font-weight: 400;
+}
+
+@utility type-small {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 400;
+}
+
+@utility type-caption {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+@utility type-overline {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1167em;
+  text-transform: uppercase;
+}
+
+@utility type-button {
+  font-size: 0.9375rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+@utility type-mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  @media (min-width: 48rem) {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+
+@utility type-mono-s {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+/* ---------------------------------------------------------------------- Layout */
+
+/*
+ * Page container: 1200px content on desktop, 704px on tablet (32px margin),
+ * 358px on mobile (16px margin).
+ */
+@utility container-page {
+  --gutter: 1rem;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  max-width: calc(1200px + 2 * var(--gutter));
+  @media (min-width: 48rem) {
+    --gutter: 2rem;
+  }
+}
+
+/* ------------------------------------------------------------------------ Base */
+
+@layer base {
+  html {
+    background-color: var(--bg-page);
+    color: var(--text-body);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--action-focus);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-blue-200);
+    color: var(--color-slate-950);
+  }
+}
+
+/* ------------------------------------------------------------------ Components */
+
+@layer components {
+  /*
+   * Glass header. Figma uses a refraction effect that CSS cannot reproduce, so
+   * the web version approximates it with backdrop-filter and the tint from the
+   * design (dark #141414 at 80%, light #FFFFFF at 80%, set in --glass-tint).
+   */
+  .header-glass {
+    background-color: var(--glass-tint);
+    -webkit-backdrop-filter: blur(18px) saturate(1.5);
+    backdrop-filter: blur(18px) saturate(1.5);
+  }
+
+  /* Browsers without backdrop-filter get a 92% solid background. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .header-glass {
+      background-color: color-mix(in srgb, var(--bg-page) 92%, transparent);
+    }
+  }
+}

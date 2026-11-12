@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "title": "Capstio – Heavy lifting for every server, from one Mac",
+    "description": "Docker, PM2, systemd, config files and a terminal in one native app. Just SSH, no agent."
+  },
+  "common": {
+    "ctaBeta": "Join the beta",
+    "ctaDownload": "Download Capstio",
+    "language": "Language",
+    "theme": "Switch between light and dark theme",
+    "themeLight": "Light theme",
+    "themeDark": "Dark theme",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "home": "Capstio, back to the home page",
+    "mainNav": "Main navigation",
+    "footerNav": "Footer"
+  },
+  "languages": { "vi": "Tiếng Việt", "en": "English" },
+  "languagesShort": { "vi": "VI", "en": "EN" },
+  "header": {
+    "announcement": "The first beta is coming soon.",
+    "announcementLink": "See release notes",
+    "nav": {
+      "features": "Features",
+      "solutions": "Solutions",
+      "compare": "Compare",
+      "insights": "Insights",
+      "releaseNotes": "Release notes"
+    },
+    "allFeatures": "All features"
+  },
+  "features": {
+    "apps": { "title": "Apps", "description": "Compose, PM2 and systemd in one list" },
+    "docker": { "title": "Docker", "description": "Containers, images, volumes and networks" },
+    "safeConfig": { "title": "Safe config editing", "description": "Syntax check, backup, diff and restore" },
+    "terminal": { "title": "Terminal", "description": "Multiple tabs, split view, warnings for risky commands" },
+    "recipes": { "title": "Recipes", "description": "24 ready-made recipes with clear risk levels" },
+    "alerts": { "title": "Alerts", "description": "Disk, CPU, RAM and containers while Capstio is open" },
+    "sshSecurity": { "title": "SSH security", "description": "Analyze sign-ins, block an IP in one click" },
+    "tunnels": { "title": "Tunnels", "description": "Local, Remote, SOCKS and connectivity checks" },
+    "ai": { "title": "AI", "description": "Proposes read-only commands, you approve each one" },
+    "teams": { "title": "Teams", "description": "End-to-end encrypted vault, permissions, audit log" }
+  },
+  "solutions": {
+    "agency": { "title": "Agencies", "description": "Group VPSs by client, share access, keep an audit log" },
+    "indie": { "title": "Indie developers", "description": "One window for every VPS, no command lookups" },
+    "startupOps": { "title": "Startup ops", "description": "Risky commands need confirmation, configs are backed up" }
+  },
+  "footer": {
+    "tagline": "Heavy lifting for every server, from one Mac.",
+    "requirement": "macOS 15+ · no agent to install",
+    "copyright": "© 2026 Tekmium Solutions · Capstio by Tekmium Solutions",
+    "columns": {
+      "features": "Features",
+      "technology": "Technology",
+      "solutions": "Solutions",
+      "resources": "Resources",
+      "company": "Company"
+    },
+    "links": {
+      "allFeatures": "All features",
+      "dockerManager": "Docker manager",
+      "pm2Gui": "PM2 GUI",
+      "systemdGui": "systemd GUI",
+      "sshClient": "SSH client for Mac",
+      "insights": "Insights",
+      "releaseNotes": "Release notes",
+      "compare": "Compare",
+      "faq": "FAQ",
+      "rss": "RSS",
+      "about": "About",
+      "brand": "Brand",
+      "security": "Security",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    }
+  },
+  "home": {
+    "overline": "Coming soon",
+    "title": "Heavy lifting for every server, from one Mac.",
+    "body": "Docker, PM2, systemd, config files and a terminal in one native app. Just SSH, no agent.",
+    "secondaryCta": "See features",
+    "requirement": "macOS 15+ · no agent to install",
+    "commandLabel": "Equivalent command",
+    "statusRunning": "Running"
+  }
+}

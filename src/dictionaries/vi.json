@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "title": "Capstio – Quản lý mọi VPS từ một chiếc Mac",
+    "description": "Docker, PM2, systemd, file config và terminal trong một app native. Chỉ cần SSH, không cài agent."
+  },
+  "common": {
+    "ctaBeta": "Đăng ký beta",
+    "ctaDownload": "Tải về Capstio",
+    "language": "Ngôn ngữ",
+    "theme": "Đổi giao diện sáng hoặc tối",
+    "themeLight": "Giao diện sáng",
+    "themeDark": "Giao diện tối",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu",
+    "home": "Capstio, về trang chủ",
+    "mainNav": "Điều hướng chính",
+    "footerNav": "Chân trang"
+  },
+  "languages": { "vi": "Tiếng Việt", "en": "English" },
+  "languagesShort": { "vi": "VI", "en": "EN" },
+  "header": {
+    "announcement": "Bản beta đầu tiên sắp ra mắt.",
+    "announcementLink": "Xem Release notes",
+    "nav": {
+      "features": "Tính năng",
+      "solutions": "Giải pháp",
+      "compare": "So sánh",
+      "insights": "Insights",
+      "releaseNotes": "Release notes"
+    },
+    "allFeatures": "Tất cả tính năng"
+  },
+  "features": {
+    "apps": { "title": "Apps", "description": "Compose, PM2 và systemd trong một danh sách" },
+    "docker": { "title": "Docker", "description": "Container, image, volume và network" },
+    "safeConfig": { "title": "Sửa config", "description": "Kiểm tra cú pháp, sao lưu, diff và khôi phục" },
+    "terminal": { "title": "Terminal", "description": "Nhiều tab, chia đôi, cảnh báo lệnh nguy hiểm" },
+    "recipes": { "title": "Recipes", "description": "24 recipe dựng sẵn, có mức rủi ro rõ ràng" },
+    "alerts": { "title": "Cảnh báo", "description": "Disk, CPU, RAM và container, khi Capstio đang mở" },
+    "sshSecurity": { "title": "Bảo mật SSH", "description": "Phân tích đăng nhập, chặn IP một chạm" },
+    "tunnels": { "title": "Tunnel", "description": "Local, Remote, SOCKS và kiểm tra đường truyền" },
+    "ai": { "title": "AI", "description": "Đề xuất lệnh chỉ đọc, bạn cho phép từng lệnh" },
+    "teams": { "title": "Làm việc nhóm", "description": "Vault mã hoá đầu-cuối, phân quyền, nhật ký" }
+  },
+  "solutions": {
+    "agency": { "title": "Agency", "description": "Nhóm VPS theo khách, chia quyền, có nhật ký" },
+    "indie": { "title": "Indie developer", "description": "Một cửa sổ cho mọi VPS, không phải tra lệnh" },
+    "startupOps": { "title": "Đội vận hành startup", "description": "Lệnh nguy hiểm phải xác nhận, config có sao lưu" }
+  },
+  "footer": {
+    "tagline": "Quản lý mọi VPS từ một chiếc Mac, không cần nhớ lệnh.",
+    "requirement": "macOS 15+ · không cài agent",
+    "copyright": "© 2026 Tekmium Solutions · Capstio by Tekmium Solutions",
+    "columns": {
+      "features": "Tính năng",
+      "technology": "Công nghệ",
+      "solutions": "Giải pháp",
+      "resources": "Tài nguyên",
+      "company": "Công ty"
+    },
+    "links": {
+      "allFeatures": "Tất cả tính năng",
+      "dockerManager": "Quản lý Docker",
+      "pm2Gui": "PM2 GUI",
+      "systemdGui": "systemd GUI",
+      "sshClient": "SSH client cho Mac",
+      "insights": "Insights",
+      "releaseNotes": "Release notes",
+      "compare": "So sánh",
+      "faq": "FAQ",
+      "rss": "RSS",
+      "about": "Giới thiệu",
+      "brand": "Thương hiệu",
+      "security": "Bảo mật",
+      "privacy": "Quyền riêng tư",
+      "terms": "Điều khoản"
+    }
+  },
+  "home": {
+    "overline": "Sắp ra mắt",
+    "title": "Quản lý mọi VPS từ một chiếc Mac, không cần nhớ lệnh.",
+    "body": "Docker, PM2, systemd, file config và terminal trong một app native. Chỉ cần SSH, không cài agent.",
+    "secondaryCta": "Xem tính năng",
+    "requirement": "macOS 15+ · không cài agent",
+    "commandLabel": "Lệnh tương đương",
+    "statusRunning": "Đang chạy"
+  }
+}
