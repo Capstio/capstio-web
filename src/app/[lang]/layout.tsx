@@ -38,9 +38,6 @@ export async function generateMetadata({
   return {
     title: { default: meta.title, template: "%s · Capstio" },
     description: meta.description,
-    alternates: {
-      languages: Object.fromEntries(locales.map((l) => [l, `/${l}`])),
-    },
   };
 }
 

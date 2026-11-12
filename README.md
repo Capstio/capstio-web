@@ -4,7 +4,7 @@ Website marketing của Capstio, viết bằng Next.js (App Router, Cache Compon
 
 ```bash
 pnpm install
-pnpm dev      # http://localhost:3000, tự chuyển sang /vi hoặc /en theo Accept-Language
+pnpm dev      # http://localhost:3000
 pnpm lint
 pnpm build
 ```
@@ -13,8 +13,9 @@ Next.js ở đây là phiên bản mới, khác nhiều so với bản cũ. Đ�
 
 ## Cấu trúc
 
-- `src/app/[lang]/`: layout gốc và các trang, mọi route nằm dưới `vi` hoặc `en`.
-- `src/proxy.ts`: chuyển hướng đường dẫn thiếu mã ngôn ngữ.
+- `src/app/[lang]/`: layout gốc và các trang. Segment `[lang]` chỉ dùng nội bộ, URL công khai không có `/vi` hay `/en`.
+- `src/proxy.ts`: đọc cookie `capstio-lang` (rồi tới `Accept-Language`, mặc định `vi`) và rewrite nội bộ sang `/<locale>/...`. Link cũ dạng `/en/...` được chuyển về đường dẫn không tiền tố và ghi nhớ ngôn ngữ.
+- `src/lib/set-locale.ts`: Server Action đặt cookie khi người dùng đổi ngôn ngữ ở header hoặc footer.
 - `src/dictionaries/{vi,en}.json`: toàn bộ chữ hiển thị. Tiếng Việt là ngôn ngữ chính, tiếng Anh là bản dịch đầy đủ.
 - `src/lib/site-nav.ts`: cấu trúc điều hướng dùng chung cho header và footer (nhãn nằm trong từ điển).
 - `src/components/ui/`: component cơ bản (Button, StatusBadge, CodeStrip, Card, Section, Container, Logo, Overline).

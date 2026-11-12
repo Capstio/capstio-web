@@ -411,17 +411,17 @@
    * Glass header. Figma uses a refraction effect that CSS cannot reproduce, so
    * the web version approximates it with backdrop-filter and the tint from the
    * design (dark #141414 at 80%, light #FFFFFF at 80%, set in --glass-tint).
+   * The tint itself is applied as a background utility so it can transition.
    */
   .header-glass {
-    background-color: var(--glass-tint);
     -webkit-backdrop-filter: blur(18px) saturate(1.5);
     backdrop-filter: blur(18px) saturate(1.5);
   }
 
-  /* Browsers without backdrop-filter get a 92% solid background. */
+  /* Browsers without backdrop-filter get a 92% solid tint. */
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .header-glass {
-      background-color: color-mix(in srgb, var(--bg-page) 92%, transparent);
+      --glass-tint: color-mix(in srgb, var(--bg-page) 92%, transparent);
     }
   }
 }

@@ -74,12 +74,9 @@
     }
   },
   "home": {
-    "overline": "Sắp ra mắt",
-    "title": "Quản lý mọi VPS từ một chiếc Mac, không cần nhớ lệnh.",
-    "body": "Docker, PM2, systemd, file config và terminal trong một app native. Chỉ cần SSH, không cài agent.",
-    "secondaryCta": "Xem tính năng",
-    "requirement": "macOS 15+ · không cài agent",
-    "commandLabel": "Lệnh tương đương",
-    "statusRunning": "Đang chạy"
+    "heroDemo": {
+      "label": "Hero (demo)",
+      "note": "Chỗ đặt mockup của hero"
+    }
   }
 }

@@ -74,12 +74,9 @@
     }
   },
   "home": {
-    "overline": "Coming soon",
-    "title": "Heavy lifting for every server, from one Mac.",
-    "body": "Docker, PM2, systemd, config files and a terminal in one native app. Just SSH, no agent.",
-    "secondaryCta": "See features",
-    "requirement": "macOS 15+ · no agent to install",
-    "commandLabel": "Equivalent command",
-    "statusRunning": "Running"
+    "heroDemo": {
+      "label": "Hero (demo)",
+      "note": "Placeholder for the hero mockup"
+    }
   }
 }

@@ -4,7 +4,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Button, DownloadButton, Logo } from "@/components/ui";
-import { cn, localizedHref } from "@/lib/cn";
+import { cn } from "@/lib/cn";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
 import {
@@ -125,11 +125,10 @@ export function SiteHeader({ lang, dict }: SiteHeaderProps) {
     setOpenMenu(null);
     setMobileOpen(false);
   };
-  const href = (path: string) => localizedHref(lang, path);
 
   const ctaButton = (className?: string) => (
     <DownloadButton
-      href={href(downloadHref)}
+      href={downloadHref}
       onClick={closeAll}
       className={className}
     >
@@ -147,103 +146,96 @@ export function SiteHeader({ lang, dict }: SiteHeaderProps) {
       // Reserves the space of the bar so the fixed header never covers content.
       className="relative z-50 h-16 lg:h-18"
     >
-      <div
-        className={cn(
-          "fixed inset-x-0 top-0 transition-[padding] duration-200 ease-out motion-reduce:transition-none",
-          compact && "px-3 pt-3 lg:px-4 lg:pt-4",
-        )}
-      >
+      <div className="fixed inset-x-0 top-0">
+        {/*
+          One element morphs between the full-width bar and the floating pill. Its
+          edges, height, radius and inner padding all transition together, so the
+          content glides inward with the background instead of jumping first.
+        */}
         <div
           ref={pillRef}
           data-surface={compact && overDark ? "dark" : undefined}
           className={cn(
-            "mx-auto w-full transition-[max-width,height,border-radius,box-shadow] duration-200 ease-out motion-reduce:transition-none",
+            "header-glass absolute flex items-center gap-6 border-b transition-[left,right,top,height,padding,border-radius,background-color,border-color,box-shadow] duration-200 ease-out motion-reduce:transition-none",
             compact
-              ? "header-glass h-14 max-w-300 rounded-full shadow-md lg:h-16"
-              : "h-16 max-w-[2400px] border-b border-line bg-page lg:h-18",
+              ? "top-3 right-[max(0.75rem,calc((100%-1200px)/2))] left-[max(0.75rem,calc((100%-1200px)/2))] h-14 rounded-[1.75rem] border-transparent bg-(--glass-tint) px-4 shadow-md lg:top-4 lg:right-[max(1rem,calc((100%-1200px)/2))] lg:left-[max(1rem,calc((100%-1200px)/2))] lg:h-16 lg:rounded-[2rem] lg:px-5"
+              : "top-0 right-0 left-0 h-16 rounded-none border-line bg-page px-[max(1rem,calc((100%-1200px)/2))] shadow-none md:px-[max(2rem,calc((100%-1200px)/2))] lg:h-18",
           )}
         >
-          <div
-            className={cn(
-              "flex h-full items-center gap-6",
-              compact
-                ? "px-4 lg:px-5"
-                : "px-[max(1rem,calc((100%-1200px)/2))] md:px-[max(2rem,calc((100%-1200px)/2))]",
-            )}
-          >
-            <Link href={href("/")} aria-label={dict.common.home} onClick={closeAll}>
-              <Logo />
-            </Link>
+          <Link href="/" aria-label={dict.common.home} onClick={closeAll}>
+            <Logo />
+          </Link>
 
-            <nav
-              aria-label={dict.common.mainNav}
-              className="hidden items-center gap-1 lg:flex"
-            >
-              {(["features", "solutions"] as const).map((id) => (
-                <div key={id} className="relative">
-                  <button
-                    type="button"
-                    aria-expanded={openMenu === id}
-                    aria-controls={`menu-${id}`}
-                    onClick={() => toggleMenu(id)}
-                    className={cn(
-                      navTrigger,
-                      openMenu === id && "bg-heading/10 text-heading",
-                    )}
-                  >
-                    {dict.header.nav[id]}
-                    <ChevronDown
-                      aria-hidden="true"
-                      className={cn(
-                        "size-4 text-muted transition-transform motion-reduce:transition-none",
-                        openMenu === id && "rotate-180",
-                      )}
-                    />
-                  </button>
-                  {openMenu === id &&
-                    (id === "features" ? (
-                      <FeaturesMenu lang={lang} dict={dict} onNavigate={closeAll} />
-                    ) : (
-                      <SolutionsMenu lang={lang} dict={dict} onNavigate={closeAll} />
-                    ))}
-                </div>
-              ))}
-              {(["compare", "insights", "releaseNotes"] as const).map((id) => (
-                <Link
-                  key={id}
-                  href={href(topLinkHref[id])}
-                  className={navTrigger}
+          <nav
+            aria-label={dict.common.mainNav}
+            className="hidden items-center gap-1 lg:flex"
+          >
+            {(["features", "solutions"] as const).map((id) => (
+              <div key={id} className="relative">
+                <button
+                  type="button"
+                  aria-expanded={openMenu === id}
+                  aria-controls={`menu-${id}`}
+                  onClick={() => toggleMenu(id)}
+                  className={cn(
+                    navTrigger,
+                    openMenu === id && "bg-heading/10 text-heading",
+                  )}
                 >
                   {dict.header.nav[id]}
-                </Link>
-              ))}
-            </nav>
+                  <ChevronDown
+                    aria-hidden="true"
+                    className={cn(
+                      "size-4 text-muted transition-transform motion-reduce:transition-none",
+                      openMenu === id && "rotate-180",
+                    )}
+                  />
+                </button>
+                {openMenu === id &&
+                  (id === "features" ? (
+                    <FeaturesMenu dict={dict} onNavigate={closeAll} />
+                  ) : (
+                    <SolutionsMenu dict={dict} onNavigate={closeAll} />
+                  ))}
+              </div>
+            ))}
+            {(["compare", "insights", "releaseNotes"] as const).map((id) => (
+              <Link
+                key={id}
+                href={topLinkHref[id]}
+                className={navTrigger}
+              >
+                {dict.header.nav[id]}
+              </Link>
+            ))}
+          </nav>
 
-            <div className="ml-auto hidden items-center gap-2 lg:flex">
-              <LanguageSelect
-                lang={lang}
-                label={dict.common.language}
-                names={dict.languagesShort}
-              />
-              <ThemeToggle label={dict.common.theme} />
-              {ctaButton()}
-            </div>
-
-            <Button
-              variant="secondary"
-              aria-label={mobileOpen ? dict.common.closeMenu : dict.common.openMenu}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-menu"
-              onClick={() => setMobileOpen((open) => !open)}
-              className="ml-auto size-10 border-0 p-0 lg:hidden"
-            >
-              {mobileOpen ? (
-                <X aria-hidden="true" className="size-5" />
-              ) : (
-                <Menu aria-hidden="true" className="size-5" />
-              )}
-            </Button>
+          <div className="ml-auto hidden items-center gap-2 lg:flex">
+            <LanguageSelect
+              lang={lang}
+              label={dict.common.language}
+              names={dict.languages}
+              triggerNames={dict.languagesShort}
+              align="end"
+            />
+            <ThemeToggle label={dict.common.theme} />
+            {ctaButton()}
           </div>
+
+          <Button
+            variant="secondary"
+            aria-label={mobileOpen ? dict.common.closeMenu : dict.common.openMenu}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMobileOpen((open) => !open)}
+            className="ml-auto size-10 border-0 p-0 lg:hidden"
+          >
+            {mobileOpen ? (
+              <X aria-hidden="true" className="size-5" />
+            ) : (
+              <Menu aria-hidden="true" className="size-5" />
+            )}
+          </Button>
         </div>
 
         {mobileOpen && (
@@ -263,7 +255,7 @@ export function SiteHeader({ lang, dict }: SiteHeaderProps) {
                 {featureKeys.map((key) => (
                   <li key={key}>
                     <Link
-                      href={href(featureHref[key])}
+                      href={featureHref[key]}
                       onClick={closeAll}
                       className="type-small block py-2 text-body hover:text-heading"
                     >
@@ -273,7 +265,7 @@ export function SiteHeader({ lang, dict }: SiteHeaderProps) {
                 ))}
                 <li className="col-span-2 pt-1">
                   <Link
-                    href={href(allFeaturesHref)}
+                    href={allFeaturesHref}
                     onClick={closeAll}
                     className="type-small font-medium text-link"
                   >
@@ -295,7 +287,7 @@ export function SiteHeader({ lang, dict }: SiteHeaderProps) {
                 {solutionKeys.map((key) => (
                   <li key={key}>
                     <Link
-                      href={href(solutionHref[key])}
+                      href={solutionHref[key]}
                       onClick={closeAll}
                       className="type-small block py-2 text-body hover:text-heading"
                     >
@@ -309,7 +301,7 @@ export function SiteHeader({ lang, dict }: SiteHeaderProps) {
             {(["compare", "insights", "releaseNotes"] as const).map((id) => (
               <Link
                 key={id}
-                href={href(topLinkHref[id])}
+                href={topLinkHref[id]}
                 onClick={closeAll}
                 className="type-body flex h-12 items-center border-b border-line font-medium text-heading"
               >

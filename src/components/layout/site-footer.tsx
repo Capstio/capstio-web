@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Container, DownloadButton, Logo } from "@/components/ui";
-import { localizedHref } from "@/lib/cn";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
 import { downloadHref, footerColumns } from "@/lib/site-nav";
@@ -23,7 +22,7 @@ export function SiteFooter({ lang, dict }: SiteFooterProps) {
       <Container>
         <div className="grid gap-10 lg:grid-cols-[19rem_repeat(5,minmax(0,1fr))] lg:gap-x-6">
           <div>
-            <Link href={localizedHref(lang, "/")} aria-label={dict.common.home}>
+            <Link href={"/"} aria-label={dict.common.home}>
               <Logo />
             </Link>
             <p className="type-body mt-4 max-w-72 text-heading">
@@ -31,7 +30,7 @@ export function SiteFooter({ lang, dict }: SiteFooterProps) {
             </p>
             <p className="type-small mt-4 text-muted">{footer.requirement}</p>
             <DownloadButton
-              href={localizedHref(lang, downloadHref)}
+              href={downloadHref}
               className="mt-6 w-full lg:w-auto"
             >
               {dict.common.ctaDownload}
@@ -51,7 +50,7 @@ export function SiteFooter({ lang, dict }: SiteFooterProps) {
                   {column.links.map((link) => (
                     <li key={link.id}>
                       <Link
-                        href={localizedHref(lang, link.href)}
+                        href={link.href}
                         className="type-small text-muted transition-colors hover:text-heading motion-reduce:transition-none"
                       >
                         {linkLabel(dict, link.id)}
@@ -71,6 +70,7 @@ export function SiteFooter({ lang, dict }: SiteFooterProps) {
               label={dict.common.language}
               names={dict.languages}
               variant="outlined"
+              placement="top"
             />
             <ThemeToggle
               label={dict.common.theme}
