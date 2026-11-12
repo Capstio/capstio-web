@@ -3,20 +3,19 @@
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Button, ButtonLink, Logo } from "@/components/ui";
+import { Button, DownloadButton, Logo } from "@/components/ui";
 import { cn, localizedHref } from "@/lib/cn";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
 import {
   allFeaturesHref,
-  ctaHref,
+  downloadHref,
   featureHref,
   featureKeys,
   solutionHref,
   solutionKeys,
   topLinkHref,
 } from "@/lib/site-nav";
-import { AppleIcon } from "./apple-icon";
 import { FeaturesMenu, SolutionsMenu } from "./header-menus";
 import { LanguageSelect } from "./language-select";
 import { ThemeToggle } from "./theme-toggle";
@@ -34,8 +33,6 @@ type SiteHeaderProps = {
     | "languages"
     | "languagesShort"
   >;
-  // "download" swaps the primary call to action for the Download button.
-  cta?: "beta" | "download";
   announcement?: boolean;
 };
 
@@ -45,7 +42,6 @@ const navTrigger =
 export function SiteHeader({
   lang,
   dict,
-  cta = "beta",
   announcement = true,
 }: SiteHeaderProps) {
   const headerRef = useRef<HTMLElement>(null);
@@ -137,17 +133,14 @@ export function SiteHeader({
   const href = (path: string) => localizedHref(lang, path);
   const showBar = announcement && !compact && !mobileOpen;
 
-  const ctaLabel =
-    cta === "download" ? dict.common.ctaDownload : dict.common.ctaBeta;
   const ctaButton = (className?: string) => (
-    <ButtonLink
-      href={href(ctaHref[cta])}
+    <DownloadButton
+      href={href(downloadHref)}
       onClick={closeAll}
       className={className}
     >
-      {cta === "download" && <AppleIcon className="size-4" />}
-      {ctaLabel}
-    </ButtonLink>
+      {dict.common.ctaDownload}
+    </DownloadButton>
   );
 
   const names = dict.languages;

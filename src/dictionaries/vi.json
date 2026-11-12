@@ -4,7 +4,6 @@
     "description": "Docker, PM2, systemd, file config và terminal trong một app native. Chỉ cần SSH, không cài agent."
   },
   "common": {
-    "ctaBeta": "Đăng ký beta",
     "ctaDownload": "Tải về Capstio",
     "language": "Ngôn ngữ",
     "theme": "Đổi giao diện sáng hoặc tối",

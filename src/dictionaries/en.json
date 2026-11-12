@@ -4,7 +4,6 @@
     "description": "Docker, PM2, systemd, config files and a terminal in one native app. Just SSH, no agent."
   },
   "common": {
-    "ctaBeta": "Join the beta",
     "ctaDownload": "Download Capstio",
     "language": "Language",
     "theme": "Switch between light and dark theme",

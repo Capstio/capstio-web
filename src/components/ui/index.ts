@@ -1,7 +1,9 @@
 export { StatusBadge } from "./badge";
+export { AppleIcon } from "./apple-icon";
 export { Button, ButtonLink } from "./button";
 export { Card } from "./card";
 export { CodeStrip } from "./code-strip";
+export { DownloadButton } from "./download-button";
 export { Container } from "./container";
 export { Logo, LogoMark } from "./logo";
 export { Overline } from "./overline";

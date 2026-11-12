@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { ButtonLink, Container, Logo } from "@/components/ui";
+import { Container, DownloadButton, Logo } from "@/components/ui";
 import { localizedHref } from "@/lib/cn";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
-import { ctaHref, footerColumns } from "@/lib/site-nav";
-import { AppleIcon } from "./apple-icon";
+import { downloadHref, footerColumns } from "@/lib/site-nav";
 import { LanguageSelect } from "./language-select";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -14,10 +13,9 @@ type SiteFooterProps = {
     Dictionary,
     "common" | "footer" | "features" | "solutions" | "languages"
   >;
-  cta?: "beta" | "download";
 };
 
-export function SiteFooter({ lang, dict, cta = "beta" }: SiteFooterProps) {
+export function SiteFooter({ lang, dict }: SiteFooterProps) {
   const { footer } = dict;
 
   return (
@@ -32,14 +30,12 @@ export function SiteFooter({ lang, dict, cta = "beta" }: SiteFooterProps) {
               {footer.tagline}
             </p>
             <p className="type-small mt-4 text-muted">{footer.requirement}</p>
-            <ButtonLink
-              href={localizedHref(lang, ctaHref[cta])}
-              size="md"
+            <DownloadButton
+              href={localizedHref(lang, downloadHref)}
               className="mt-6 w-full lg:w-auto"
             >
-              {cta === "download" && <AppleIcon className="size-4" />}
-              {cta === "download" ? dict.common.ctaDownload : dict.common.ctaBeta}
-            </ButtonLink>
+              {dict.common.ctaDownload}
+            </DownloadButton>
           </div>
 
           <nav

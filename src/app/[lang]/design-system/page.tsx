@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
-  ButtonLink,
   Button,
+  ButtonLink,
   Card,
   CodeStrip,
   Container,
+  DownloadButton,
   Logo,
   LogoMark,
   Overline,
@@ -45,7 +46,7 @@ const semantic: { token: string; cssVar: string; use: string }[] = [
   { token: "text/accent", cssVar: "--text-accent", use: "Overline" },
   { token: "text/link", cssVar: "--text-link", use: "Inline links" },
   { token: "text/on-action", cssVar: "--text-on-action", use: "Text on primary button" },
-  { token: "action/primary", cssVar: "--action-primary", use: "Beta CTA" },
+  { token: "action/primary", cssVar: "--action-primary", use: "Download CTA" },
   { token: "action/primary-hover", cssVar: "--action-primary-hover", use: "CTA hover" },
   { token: "action/focus", cssVar: "--action-focus", use: "Keyboard focus ring" },
   { token: "border/default", cssVar: "--border-default", use: "Dividers, card borders" },
@@ -67,7 +68,7 @@ const typeScale: { cls: string; name: string; sample: string; spec: string }[] =
   { cls: "type-small", name: "Small", sample: "macOS 15+ · Ưu tiên Apple Silicon", spec: "14/22 · 400" },
   { cls: "type-caption", name: "Caption", sample: "Ngày đối chiếu: 05/10/2026", spec: "12/18 · 400" },
   { cls: "type-overline", name: "Overline", sample: "Lệnh tương đương", spec: "12/16 · 600 · +1.4 · uppercase" },
-  { cls: "type-button", name: "Button", sample: "Đăng ký beta", spec: "15/20 · 600" },
+  { cls: "type-button", name: "Button", sample: "Tải về Capstio", spec: "15/20 · 600" },
   { cls: "type-mono", name: "Mono", sample: "cd /opt/demo-api && docker compose restart", spec: "14/22 · JetBrains Mono" },
   { cls: "type-mono-s", name: "Mono S", sample: "~/.ssh/config", spec: "12/18 · JetBrains Mono" },
 ];
@@ -203,7 +204,7 @@ export default async function DesignSystemPage({
                     Docker, PM2, systemd, file config và terminal trong một app native.
                   </p>
                   <div className="mt-4 flex items-center gap-2">
-                    <ButtonLink href="#" size="md">Đăng ký beta</ButtonLink>
+                    <DownloadButton href="#" size="md">Tải về Capstio</DownloadButton>
                     <ButtonLink href="#" variant="link">Xem tính năng</ButtonLink>
                   </div>
                   <CodeStrip className="mt-4">docker compose restart</CodeStrip>
@@ -284,7 +285,7 @@ export default async function DesignSystemPage({
               <div>
                 <p className="type-small mb-3 font-semibold text-heading">Button</p>
                 <div className="flex flex-wrap items-center gap-3">
-                  <Button>Đăng ký beta</Button>
+                  <DownloadButton href="#">Tải về Capstio</DownloadButton>
                   <Button variant="secondary">Secondary</Button>
                   <Button variant="link">Xem tính năng</Button>
                   <Button size="lg">Large</Button>

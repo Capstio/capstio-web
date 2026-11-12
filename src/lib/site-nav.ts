@@ -43,10 +43,7 @@ export const topLinkHref = {
   releaseNotes: "/release-notes",
 } as const;
 
-export const ctaHref = {
-  beta: "/beta",
-  download: "/download",
-} as const;
+export const downloadHref = "/download";
 
 export const allFeaturesHref = "/features";
 

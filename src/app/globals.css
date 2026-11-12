@@ -89,28 +89,6 @@
   --color-green-600: #067647;
   --color-green-950: #0b3324;
 
-  /* Semantic colors, resolved per theme in section 2 (token names mirror Figma) */
-  --color-page: var(--bg-page);
-  --color-subtle: var(--bg-subtle);
-  --color-surface: var(--bg-surface);
-  --color-code: var(--bg-code);
-  --color-terminal: var(--bg-terminal);
-  --color-heading: var(--text-heading);
-  --color-body: var(--text-body);
-  --color-muted: var(--text-muted);
-  --color-accent: var(--text-accent);
-  --color-link: var(--text-link);
-  --color-on-action: var(--text-on-action);
-  --color-action: var(--action-primary);
-  --color-action-hover: var(--action-primary-hover);
-  --color-focus: var(--action-focus);
-  --color-line: var(--border-default);
-  --color-line-strong: var(--border-strong);
-  --color-signal: var(--accent-signal);
-  --color-success: var(--status-success);
-  --color-warning: var(--status-warning);
-  --color-danger: var(--status-danger);
-
   /* Radius */
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -133,6 +111,34 @@
   /* Breakpoints: mobile 390, tablet 768, desktop 1440 grid */
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
+}
+
+/*
+ * Semantic colors. "inline" makes each utility reference the variable itself
+ * (for example var(--text-heading)) instead of a copy computed once on :root,
+ * so a data-surface block or the dark theme can change the value below it.
+ */
+@theme inline {
+  --color-page: var(--bg-page);
+  --color-subtle: var(--bg-subtle);
+  --color-surface: var(--bg-surface);
+  --color-code: var(--bg-code);
+  --color-terminal: var(--bg-terminal);
+  --color-heading: var(--text-heading);
+  --color-body: var(--text-body);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--text-accent);
+  --color-link: var(--text-link);
+  --color-on-action: var(--text-on-action);
+  --color-action: var(--action-primary);
+  --color-action-hover: var(--action-primary-hover);
+  --color-focus: var(--action-focus);
+  --color-line: var(--border-default);
+  --color-line-strong: var(--border-strong);
+  --color-signal: var(--accent-signal);
+  --color-success: var(--status-success);
+  --color-warning: var(--status-warning);
+  --color-danger: var(--status-danger);
 }
 
 /*

@@ -3,6 +3,7 @@ import {
   ButtonLink,
   CodeStrip,
   Container,
+  DownloadButton,
   Overline,
   Section,
   StatusBadge,
@@ -10,7 +11,7 @@ import {
 import { localizedHref } from "@/lib/cn";
 import { getDictionary } from "@/lib/dictionaries";
 import { hasLocale } from "@/lib/i18n";
-import { ctaHref } from "@/lib/site-nav";
+import { downloadHref } from "@/lib/site-nav";
 
 // Placeholder home page: shows the tokens and basic components inside the
 // shared header and footer until the real homepage blocks are built.
@@ -26,9 +27,9 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         <h1 className="type-display mt-4 max-w-4xl text-heading">{home.title}</h1>
         <p className="type-body-l mt-6 max-w-2xl text-body">{home.body}</p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <ButtonLink href={localizedHref(lang, ctaHref.beta)} size="lg">
-            {common.ctaBeta}
-          </ButtonLink>
+          <DownloadButton href={localizedHref(lang, downloadHref)} size="lg">
+            {common.ctaDownload}
+          </DownloadButton>
           <ButtonLink
             href={localizedHref(lang, "/features")}
             variant="link"
