@@ -100,8 +100,6 @@
   --color-navy-950: #05070d;
   --color-blue-25: #eef3ff;
   --color-blue-450: #5b84f0;
-  --color-periwinkle-300: #8fa8f0;
-  --color-periwinkle-400: #7c9bea;
   --color-azure-500: #3b82f6;
   --color-orange-500: #f59e0b;
   --color-orange-600: #d97706;
@@ -389,10 +387,10 @@
   --sp-unknown-bg: rgb(148 163 184 / 0.18);
   --sp-logo-ring: var(--color-slate-0);
   --sp-band: var(--color-navy-950);
-  --sp-kicker: var(--color-periwinkle-400);
+  --sp-kicker: var(--color-blue-450);
   --sp-point: rgb(255 255 255 / 0.035);
   --sp-point-tile: rgb(47 91 211 / 0.22);
-  --sp-point-icon: var(--color-periwinkle-300);
+  --sp-point-icon: var(--color-blue-450);
   --sp-chip-solid: rgb(255 255 255 / 0.1);
 }
 

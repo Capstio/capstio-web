@@ -142,6 +142,21 @@
         { "title": "Xem log tập trung", "body": "Xem log trực tiếp của từng app theo thời gian thực. Lọc nhanh dòng ERROR, WARN và tô sáng từ khóa quan trọng." }
       ],
       "imageAlt": "Tab Apps của Capstio liệt kê các app Docker Compose, PM2 và systemd của một server"
+    },
+    "safeConfig": {
+      "overline": "Sửa config an toàn",
+      "title": "Sửa Nginx, YAML và .env mà không làm sập production.",
+      "subtitle": "Thôi sửa mò bằng nano. Capstio kiểm tra cú pháp ngay khi gõ, tự sao lưu trên server trước mỗi lần lưu và cho khôi phục một chạm.",
+      "points": [
+        { "title": "Kiểm tra cú pháp khi gõ", "body": "Báo lỗi cú pháp theo số dòng ngay khi gõ, cho YAML, .env, Nginx, JSON và Caddyfile." },
+        { "title": "Tự sao lưu & so sánh diff", "body": "Mỗi lần lưu đều tạo bản sao lưu trên server. Xem diff song song và khôi phục một chạm." },
+        { "title": "Che giá trị bí mật", "body": "Tự che giá trị bí mật trong file .env, chia sẻ màn hình khi sửa config an toàn hơn." }
+      ],
+      "syntaxValid": "Cú pháp hợp lệ · .env",
+      "backupTitle": "Đã sao lưu trên server",
+      "backupMeta": ".env · 13:52 · 3 phiên bản",
+      "restore": "Khôi phục",
+      "imageAlt": "Sửa file .env trong Capstio: giá trị bí mật được che và kiểm tra cú pháp hợp lệ"
     }
   }
 }

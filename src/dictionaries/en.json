@@ -142,6 +142,21 @@
         { "title": "Instant Logs", "body": "Open logs for any app. Filter by ERROR, WARN, or INFO and highlight keywords." }
       ],
       "imageAlt": "The Capstio Apps tab listing the Docker Compose, PM2 and systemd apps of one server"
+    },
+    "safeConfig": {
+      "overline": "Safe config editor",
+      "title": "Edit Nginx, YAML, and .env without breaking production.",
+      "subtitle": "No more blind edits in nano. Capstio checks syntax as you type, creates a backup on the server before every save, and lets you roll back with one click.",
+      "points": [
+        { "title": "Live Syntax Guard", "body": "Flags syntax errors by line number as you type, for YAML, .env, Nginx, JSON and Caddyfile." },
+        { "title": "Auto-Backup & Instant Diff", "body": "Every save creates a backup on the server. Compare versions side by side and restore in one click." },
+        { "title": "Secret Masking", "body": "Masks secret values in .env files, so screen-sharing a config is safer." }
+      ],
+      "syntaxValid": "Syntax valid · .env",
+      "backupTitle": "Backup saved on server",
+      "backupMeta": ".env · 13:52 · 3 versions",
+      "restore": "Restore",
+      "imageAlt": "Editing a .env file in Capstio: secret values are hidden and the syntax check passes"
     }
   }
 }
