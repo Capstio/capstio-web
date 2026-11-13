@@ -131,6 +131,17 @@
           }
         ]
       }
+    },
+    "unifiedApps": {
+      "overline": "Unified apps view",
+      "title": "Docker, PM2, systemd and more. Together at last.",
+      "subtitle": "Stop switching between {docker ps}, {pm2 status}, and {systemctl}. Capstio detects and organizes every running service into one native control center.",
+      "points": [
+        { "title": "Auto-Discovery", "body": "Finds apps whether they run on Docker Compose, PM2, or systemd. Standard SSH only, no agent." },
+        { "title": "Standardized Controls", "body": "Restart or stop any app with the same buttons, and see the equivalent command." },
+        { "title": "Instant Logs", "body": "Open logs for any app. Filter by ERROR, WARN, or INFO and highlight keywords." }
+      ],
+      "imageAlt": "The Capstio Apps tab listing the Docker Compose, PM2 and systemd apps of one server"
     }
   }
 }
