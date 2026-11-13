@@ -74,9 +74,20 @@
     }
   },
   "home": {
-    "heroDemo": {
-      "label": "Hero (demo)",
-      "note": "Placeholder for the hero mockup"
+    "hero": {
+      "title": "Heavy lifting for every server,",
+      "titleAccent": "from one Mac.",
+      "cta": "Download for macOS",
+      "requirement": "macOS 15+ · No server agent",
+      "modesLabel": "What Capstio manages",
+      "modes": {
+        "apps": { "label": "Apps", "subtitle": "Docker, PM2, systemd, config files, and terminal in one native app. Direct SSH only, zero server agent." },
+        "docker": { "label": "Docker", "subtitle": "Containers, images, volumes and networks in one native app. See what a cleanup reclaims before you run it." },
+        "terminal": { "label": "Terminal", "subtitle": "A terminal with tabs, split view and a quick command bar, right inside the app. It warns you when you type or paste a dangerous command." }
+      },
+      "videoAlt": "Capstio on a Mac: the Docker Compose, PM2 and systemd apps of a server in one list",
+      "unmute": "Turn sound on",
+      "mute": "Turn sound off"
     }
   }
 }

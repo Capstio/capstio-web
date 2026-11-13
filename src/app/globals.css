@@ -124,6 +124,8 @@
   --color-surface: var(--bg-surface);
   --color-code: var(--bg-code);
   --color-terminal: var(--bg-terminal);
+  --color-control: var(--bg-control);
+  --color-media: var(--bg-media);
   --color-heading: var(--text-heading);
   --color-body: var(--text-body);
   --color-muted: var(--text-muted);
@@ -135,6 +137,7 @@
   --color-focus: var(--action-focus);
   --color-line: var(--border-default);
   --color-line-strong: var(--border-strong);
+  --color-line-media: var(--border-media);
   --color-signal: var(--accent-signal);
   --color-success: var(--status-success);
   --color-warning: var(--status-warning);
@@ -158,6 +161,8 @@
   --bg-surface: var(--color-slate-0);
   --bg-code: var(--color-slate-100);
   --bg-terminal: var(--color-neutral-1000);
+  --bg-control: var(--color-slate-100);
+  --bg-media: var(--color-slate-100);
 
   --text-heading: var(--color-slate-950);
   --text-body: var(--color-slate-800);
@@ -172,6 +177,7 @@
 
   --border-default: var(--color-slate-200);
   --border-strong: var(--color-slate-500);
+  --border-media: var(--color-slate-300);
 
   --accent-signal: var(--color-mint-500);
   --status-success: var(--color-green-600);
@@ -184,6 +190,9 @@
 
   /* Glass header tint (see Header / Scrolled glass in Figma) */
   --glass-tint: rgb(255 255 255 / 0.8);
+
+  /* Hero dot grid: slate-500 at 75% on light, white at 60% on dark */
+  --hero-dot: rgb(107 114 128 / 0.75);
 }
 
 /* Dark theme, and the Dark context block which keeps dark values in both themes. */
@@ -196,6 +205,8 @@
   --bg-surface: var(--color-neutral-900);
   --bg-code: var(--color-neutral-950);
   --bg-terminal: var(--color-neutral-950);
+  --bg-control: var(--color-neutral-800);
+  --bg-media: var(--color-neutral-900);
 
   --text-heading: var(--color-slate-0);
   --text-body: var(--color-neutral-200);
@@ -210,6 +221,7 @@
 
   --border-default: var(--color-neutral-700);
   --border-strong: var(--color-neutral-500);
+  --border-media: var(--color-neutral-600);
 
   --accent-signal: var(--color-mint-300);
   --status-success: var(--color-green-300);
@@ -220,6 +232,8 @@
   --logo-dot: var(--color-mint-300);
 
   --glass-tint: rgb(20 20 20 / 0.8);
+
+  --hero-dot: rgb(255 255 255 / 0.6);
 }
 
 /* ----------------------------------------------------------------- 3. Contexts */
@@ -407,6 +421,46 @@
 /* ------------------------------------------------------------------ Components */
 
 @layer components {
+  /*
+   * Hero dot grid (Figma "Dot grid"): 13 rows of 3px dots, 40px apart, starting
+   * at 20px. Each row is fainter than the one above (row opacities below match
+   * Figma exactly), and every row is strongest at the left and right edges and
+   * faintest in the middle behind the text. The dot color is --hero-dot.
+   */
+  .hero-dots {
+    --hero-rows: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 1) 0px 40px,
+      rgb(0 0 0 / 0.95) 40px 80px,
+      rgb(0 0 0 / 0.9) 80px 120px,
+      rgb(0 0 0 / 0.85) 120px 160px,
+      rgb(0 0 0 / 0.8) 160px 200px,
+      rgb(0 0 0 / 0.75) 200px 240px,
+      rgb(0 0 0 / 0.7) 240px 280px,
+      rgb(0 0 0 / 0.62) 280px 320px,
+      rgb(0 0 0 / 0.54) 320px 360px,
+      rgb(0 0 0 / 0.45) 360px 400px,
+      rgb(0 0 0 / 0.36) 400px 440px,
+      rgb(0 0 0 / 0.27) 440px 480px,
+      rgb(0 0 0 / 0.18) 480px 520px,
+      transparent 520px
+    );
+    --hero-edges: linear-gradient(
+      to right,
+      #000,
+      rgb(0 0 0 / 0.44) 30%,
+      rgb(0 0 0 / 0.13) 50%,
+      rgb(0 0 0 / 0.44) 70%,
+      #000
+    );
+    background-image: radial-gradient(circle, var(--hero-dot) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+    -webkit-mask-image: var(--hero-rows), var(--hero-edges);
+    -webkit-mask-composite: source-in;
+    mask-image: var(--hero-rows), var(--hero-edges);
+    mask-composite: intersect;
+  }
+
   /*
    * Glass header. Figma uses a refraction effect that CSS cannot reproduce, so
    * the web version approximates it with backdrop-filter and the tint from the

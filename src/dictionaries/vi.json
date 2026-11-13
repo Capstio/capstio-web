@@ -74,9 +74,20 @@
     }
   },
   "home": {
-    "heroDemo": {
-      "label": "Hero (demo)",
-      "note": "Chỗ đặt mockup của hero"
+    "hero": {
+      "title": "Quản lý mọi server từ một chiếc Mac,",
+      "titleAccent": "không cần nhớ lệnh.",
+      "cta": "Tải về cho macOS",
+      "requirement": "macOS 15+ · Không cài agent",
+      "modesLabel": "Capstio quản lý những gì",
+      "modes": {
+        "apps": { "label": "Apps", "subtitle": "Docker, PM2, systemd, file config và terminal trong một app native. Chỉ cần SSH, không cài agent." },
+        "docker": { "label": "Docker", "subtitle": "Container, image, volume và network trong một app native. Xem trước dung lượng thu hồi được trước khi dọn Docker." },
+        "terminal": { "label": "Terminal", "subtitle": "Terminal nhiều tab, chia đôi và thanh lệnh nhanh ngay trong app. Cảnh báo khi bạn gõ hoặc dán lệnh nguy hiểm." }
+      },
+      "videoAlt": "Capstio trên Mac: các app Docker Compose, PM2 và systemd của một server trong cùng một danh sách",
+      "unmute": "Bật âm thanh",
+      "mute": "Tắt âm thanh"
     }
   }
 }
