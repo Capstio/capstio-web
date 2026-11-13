@@ -43,7 +43,7 @@ function withCode(text: string) {
 export function Problem({ dict }: { dict: ProblemDict }) {
   return (
     <Section
-      surface="subtle"
+      surface="light"
       aria-labelledby={headingId}
       className="py-10 lg:pt-18 lg:pb-16"
     >
