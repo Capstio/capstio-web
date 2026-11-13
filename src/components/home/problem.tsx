@@ -1,7 +1,8 @@
 import { Box, FileText, TriangleAlert, type LucideIcon } from "lucide-react";
-import { Card, Container, Overline, Section } from "@/components/ui";
+import { Container, Overline, Section } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import type { Dictionary } from "@/lib/dictionaries";
+import { withCode } from "./inline-code";
 import { ProblemComparison } from "./problem-comparison";
 
 type ProblemDict = Dictionary["home"]["problem"];
@@ -9,37 +10,25 @@ type ProblemDict = Dictionary["home"]["problem"];
 const headingId = "problem-heading";
 
 // Icon and tint of each problem card (Figma "Icon tile 1-3": amber, red, blue
-// at 15%). Colors come from the status and action tokens.
+// at 15%, same in both themes).
 const cards: {
   id: keyof ProblemDict["cards"];
   icon: LucideIcon;
   tone: string;
 }[] = [
-  { id: "terminal", icon: TriangleAlert, tone: "bg-warning/15 text-warning" },
-  { id: "config", icon: FileText, tone: "bg-danger/15 text-danger" },
-  { id: "dashboard", icon: Box, tone: "bg-action/15 text-link" },
+  { id: "terminal", icon: TriangleAlert, tone: "bg-tile-warning/15 text-tile-warning" },
+  { id: "config", icon: FileText, tone: "bg-tile-danger/15 text-tile-danger" },
+  { id: "dashboard", icon: Box, tone: "bg-tile-info/15 text-tile-info" },
 ];
 
-// Turns "{docker rm}" in a card body into inline code.
-function withCode(text: string) {
-  return text.split(/\{([^}]+)\}/).map((part, index) =>
-    index % 2 === 1 ? (
-      <code
-        key={index}
-        className="type-mono-s rounded-[5px] border border-line bg-code px-1 py-0.5 text-heading"
-      >
-        {part}
-      </code>
-    ) : (
-      part
-    ),
-  );
-}
+const chip =
+  "type-mono-s rounded-[5px] border border-chip-line bg-chip px-1 py-0.5 whitespace-nowrap text-chip-text";
 
 // Home "The problem" section (Figma "Problem & Core Feature" desktop and
 // "Problem / Mobile"): heading, three problem cards and the comparison of a
-// plain terminal, a web dashboard and Capstio. Colors follow the project
-// tokens rather than the navy palette of the Figma frame.
+// plain terminal, a web dashboard and Capstio. Block and text colors come
+// from the section palette in globals.css (exact Figma values per theme); the
+// background matches the hero.
 export function Problem({ dict }: { dict: ProblemDict }) {
   return (
     <Section
@@ -56,18 +45,21 @@ export function Problem({ dict }: { dict: ProblemDict }) {
               desktop; balanced wrapping only on small screens. */}
           <h2
             id={headingId}
-            className="type-section-title max-w-225 text-balance text-heading lg:text-wrap"
+            className="type-section-title max-w-225 text-balance text-strong lg:text-wrap"
           >
             {dict.title}
           </h2>
-          <p className="max-w-190 text-base leading-[1.2] text-balance text-muted lg:text-lg lg:leading-[1.375rem] lg:text-wrap">
+          <p className="max-w-190 text-base leading-[1.2] text-balance text-soft lg:text-lg lg:leading-[1.375rem] lg:text-wrap">
             {dict.subtitle}
           </p>
         </div>
 
         <div className="grid gap-3 lg:grid-cols-3 lg:gap-6">
           {cards.map(({ id, icon: Icon, tone }) => (
-            <Card key={id} className="flex flex-col gap-3.5 p-5 lg:gap-2.5 lg:p-6">
+            <div
+              key={id}
+              className="flex flex-col gap-3.5 rounded-lg border border-card-line bg-card p-5 shadow-(--sp-card-shadow) lg:gap-2.5 lg:p-6"
+            >
               <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-5">
                 <span
                   aria-hidden="true"
@@ -78,12 +70,12 @@ export function Problem({ dict }: { dict: ProblemDict }) {
                 >
                   <Icon className="size-5.5" strokeWidth={1.75} />
                 </span>
-                <h3 className="type-h4 text-heading lg:text-[1.25rem] lg:leading-6">
+                <h3 className="type-h4 text-strong lg:text-[1.25rem] lg:leading-6">
                   {dict.cards[id].title}
                 </h3>
               </div>
-              <p className="type-small text-muted">{withCode(dict.cards[id].body)}</p>
-            </Card>
+              <p className="type-small text-soft">{withCode(dict.cards[id].body, chip)}</p>
+            </div>
           ))}
         </div>
 

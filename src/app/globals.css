@@ -79,6 +79,36 @@
   --color-steel-300: #8fa3d6;
   --color-steel-600: #5b6b8c;
 
+  /*
+   * Section palette of the home content sections in Figma ("Problem & Core
+   * Feature" and later): cool ink greys, navy panels and brighter status hues.
+   */
+  --color-ink-50: #f8fafc;
+  --color-ink-100: #f1f5f9;
+  --color-ink-150: #eef2f7;
+  --color-ink-175: #e6ecf5;
+  --color-ink-200: #e2e8f0;
+  --color-ink-300: #cbd5e1;
+  --color-ink-400: #94a3b8;
+  --color-ink-500: #64748b;
+  --color-ink-600: #475569;
+  --color-ink-700: #334155;
+  --color-ink-900: #0f172a;
+  --color-navy-200: #b6c2d9;
+  --color-navy-800: #141a2e;
+  --color-navy-900: #0e1322;
+  --color-navy-950: #05070d;
+  --color-blue-25: #eef3ff;
+  --color-blue-450: #5b84f0;
+  --color-periwinkle-300: #8fa8f0;
+  --color-periwinkle-400: #7c9bea;
+  --color-azure-500: #3b82f6;
+  --color-orange-500: #f59e0b;
+  --color-orange-600: #d97706;
+  --color-rose-400: #f87171;
+  --color-rose-500: #ef4444;
+  --color-rose-600: #dc2626;
+
   /* Status ramps (only the steps the design uses) */
   --color-red-50: #fff5f4;
   --color-red-300: #fda29b;
@@ -135,6 +165,44 @@
   --color-muted: var(--text-muted);
   --color-accent: var(--text-accent);
   --color-eyebrow: var(--text-eyebrow);
+
+  /* Section palette (see the "Section palette" block below) */
+  --color-card: var(--sp-card);
+  --color-card-line: var(--sp-card-line);
+  --color-panel: var(--sp-panel);
+  --color-panel-line: var(--sp-panel-line);
+  --color-panel-column: var(--sp-panel-column);
+  --color-panel-column-line: var(--sp-panel-column-line);
+  --color-panel-highlight: var(--sp-panel-highlight);
+  --color-panel-divider: var(--sp-panel-divider);
+  --color-chip: var(--sp-chip);
+  --color-chip-line: var(--sp-chip-line);
+  --color-chip-text: var(--sp-chip-text);
+  --color-strong: var(--sp-text-strong);
+  --color-soft: var(--sp-text-soft);
+  --color-label: var(--sp-text-label);
+  --color-cell: var(--sp-text-cell);
+  --color-column: var(--sp-text-column);
+  --color-highlight-soft: var(--sp-text-highlight-soft);
+  --color-section-link: var(--sp-text-link);
+  --color-band: var(--sp-band);
+  --color-kicker: var(--sp-kicker);
+  --color-point: var(--sp-point);
+  --color-point-tile: var(--sp-point-tile);
+  --color-point-icon: var(--sp-point-icon);
+  --color-chip-solid: var(--sp-chip-solid);
+  --color-icon-soft: var(--sp-icon-soft);
+  --color-tile-warning: var(--color-orange-500);
+  --color-tile-danger: var(--color-rose-500);
+  --color-tile-info: var(--color-azure-500);
+  --color-good: var(--sp-good);
+  --color-good-bg: var(--sp-good-bg);
+  --color-bad: var(--sp-bad);
+  --color-bad-bg: var(--sp-bad-bg);
+  --color-caution: var(--sp-caution);
+  --color-caution-bg: var(--sp-caution-bg);
+  --color-unknown: var(--sp-unknown);
+  --color-unknown-bg: var(--sp-unknown-bg);
   --color-link: var(--text-link);
   --color-on-action: var(--text-on-action);
   --color-action: var(--action-primary);
@@ -199,6 +267,46 @@
 
   /* Hero dot grid: slate-500 at 75% on light, white at 60% on dark */
   --hero-dot: rgb(107 114 128 / 0.75);
+
+  /* Section palette, light (Figma "Problem & Core Feature / Light") */
+  --sp-card: var(--color-slate-0);
+  --sp-card-line: var(--color-ink-200);
+  --sp-card-shadow: 0 4px 16px rgb(15 23 42 / 0.06);
+  --sp-panel: var(--color-slate-0);
+  --sp-panel-line: var(--color-ink-200);
+  --sp-panel-shadow: 0 8px 32px rgb(15 23 42 / 0.08);
+  --sp-panel-column: var(--color-ink-50);
+  --sp-panel-column-line: var(--color-ink-200);
+  --sp-panel-highlight: var(--color-blue-25);
+  --sp-panel-highlight-shadow: 0 8px 28px rgb(47 91 211 / 0.16);
+  --sp-panel-divider: rgb(15 23 42 / 0.08);
+  --sp-chip: var(--color-ink-150);
+  --sp-chip-line: var(--color-ink-200);
+  --sp-chip-text: var(--color-ink-900);
+  --sp-text-strong: var(--color-ink-900);
+  --sp-text-soft: var(--color-ink-600);
+  --sp-text-label: var(--color-ink-700);
+  --sp-text-cell: var(--color-ink-900);
+  --sp-text-column: var(--color-ink-900);
+  --sp-text-highlight-soft: var(--color-ink-600);
+  --sp-text-link: var(--color-blue-600);
+  --sp-icon-soft: var(--color-ink-500);
+  --sp-good: var(--color-mint-600);
+  --sp-good-bg: rgb(46 196 160 / 0.2);
+  --sp-bad: var(--color-rose-600);
+  --sp-bad-bg: rgb(239 68 68 / 0.14);
+  --sp-caution: var(--color-orange-600);
+  --sp-caution-bg: rgb(245 158 11 / 0.18);
+  --sp-unknown: var(--color-ink-500);
+  --sp-unknown-bg: rgb(100 116 139 / 0.16);
+  --sp-logo-ring: var(--color-ink-900);
+  /* Feature sections (Figma "Feature - Unified Apps" and later) */
+  --sp-band: var(--color-ink-50);
+  --sp-kicker: var(--color-blue-600);
+  --sp-point: var(--color-slate-0);
+  --sp-point-tile: rgb(47 91 211 / 0.1);
+  --sp-point-icon: var(--color-blue-600);
+  --sp-chip-solid: var(--color-ink-175);
 }
 
 /* Dark theme, and the Dark context block which keeps dark values in both themes. */
@@ -241,6 +349,51 @@
   --glass-tint: rgb(20 20 20 / 0.8);
 
   --hero-dot: rgb(255 255 255 / 0.6);
+
+  /* Section palette, dark (Figma "Problem & Core Feature / Dark") */
+  --sp-card: var(--color-navy-800);
+  --sp-card-line: rgb(255 255 255 / 0.06);
+  --sp-card-shadow: none;
+  --sp-panel: var(--color-navy-900);
+  --sp-panel-line: rgb(255 255 255 / 0.12);
+  --sp-panel-shadow: 0 8px 40px rgb(47 91 211 / 0.14);
+  --sp-panel-column: rgb(255 255 255 / 0.03);
+  --sp-panel-column-line: rgb(255 255 255 / 0.08);
+  /*
+   * Figma fills this column with #2f5bd3 at 12%, but it also paints the 28%
+   * blue drop shadow underneath the translucent fill, so the column reads as
+   * #182c5e. CSS never draws a box-shadow under its own box, so 34% over the
+   * #0e1322 panel reproduces the rendered colour.
+   */
+  --sp-panel-highlight: rgb(47 91 211 / 0.34);
+  --sp-panel-highlight-shadow: 0 8px 32px rgb(47 91 211 / 0.28);
+  --sp-panel-divider: rgb(255 255 255 / 0.07);
+  --sp-chip: rgb(255 255 255 / 0.08);
+  --sp-chip-line: rgb(255 255 255 / 0.1);
+  --sp-chip-text: var(--color-ink-200);
+  --sp-text-strong: var(--color-slate-0);
+  --sp-text-soft: var(--color-ink-400);
+  --sp-text-label: var(--color-ink-300);
+  --sp-text-cell: var(--color-ink-100);
+  --sp-text-column: var(--color-ink-200);
+  --sp-text-highlight-soft: var(--color-navy-200);
+  --sp-text-link: var(--color-blue-450);
+  --sp-icon-soft: var(--color-ink-400);
+  --sp-good: var(--color-mint-500);
+  --sp-good-bg: rgb(46 196 160 / 0.18);
+  --sp-bad: var(--color-rose-400);
+  --sp-bad-bg: rgb(248 113 113 / 0.18);
+  --sp-caution: var(--color-orange-500);
+  --sp-caution-bg: rgb(245 158 11 / 0.18);
+  --sp-unknown: var(--color-ink-400);
+  --sp-unknown-bg: rgb(148 163 184 / 0.18);
+  --sp-logo-ring: var(--color-slate-0);
+  --sp-band: var(--color-navy-950);
+  --sp-kicker: var(--color-periwinkle-400);
+  --sp-point: rgb(255 255 255 / 0.035);
+  --sp-point-tile: rgb(47 91 211 / 0.22);
+  --sp-point-icon: var(--color-periwinkle-300);
+  --sp-chip-solid: rgb(255 255 255 / 0.1);
 }
 
 /* ----------------------------------------------------------------- 3. Contexts */

@@ -31,11 +31,11 @@ const statuses: Status[][] = [
 ];
 
 const statusStyles: Record<Status, { tone: string; icon: LucideIcon | null }> = {
-  good: { tone: "bg-signal/18 text-signal", icon: Check },
-  secure: { tone: "bg-signal/18 text-signal", icon: Lock },
-  bad: { tone: "bg-danger/18 text-danger", icon: X },
-  neutral: { tone: "bg-muted/18 text-muted", icon: Minus },
-  warn: { tone: "bg-warning/18 text-warning", icon: null },
+  good: { tone: "bg-good-bg text-good", icon: Check },
+  secure: { tone: "bg-good-bg text-good", icon: Lock },
+  bad: { tone: "bg-bad-bg text-bad", icon: X },
+  neutral: { tone: "bg-unknown-bg text-unknown", icon: Minus },
+  warn: { tone: "bg-caution-bg text-caution", icon: null },
 };
 
 function StatusIcon({ status }: { status: Status }) {
@@ -57,9 +57,12 @@ function StatusIcon({ status }: { status: Status }) {
 }
 
 const headerIcons: Record<Column, ReactNode> = {
-  terminal: <Terminal className="size-6 text-muted" strokeWidth={1.6} />,
-  dashboard: <Globe className="size-6 text-muted" strokeWidth={1.6} />,
-  capstio: <LogoMark className="size-6" />,
+  terminal: <Terminal className="size-6 text-icon-soft" strokeWidth={1.6} />,
+  dashboard: <Globe className="size-6 text-icon-soft" strokeWidth={1.6} />,
+  // Figma draws the mark with the strong text color and the mint dot.
+  capstio: (
+    <LogoMark className="size-6 [--logo-dot:var(--color-mint-500)] [--logo-ring:var(--sp-logo-ring)]" />
+  ),
 };
 
 // Comparison card of the problem section (Figma "Comparison / Card").
@@ -70,12 +73,12 @@ const headerIcons: Record<Column, ReactNode> = {
 // The visual grid is hidden from screen readers, which get a real table.
 export function ProblemComparison({ dict }: { dict: ComparisonDict }) {
   return (
-    <div className="rounded-[20px] border border-line bg-surface p-4 shadow-md lg:px-10 lg:pt-7 lg:pb-5 dark:shadow-[0_0_40px_-12px_rgb(47_91_211/0.45)]">
+    <div className="rounded-[20px] border border-panel-line bg-panel p-4 shadow-(--sp-panel-shadow) lg:px-10 lg:pt-7 lg:pb-5">
       <div className="flex flex-col items-center gap-3 text-center lg:gap-2.5">
-        <p className="type-caption font-semibold text-link uppercase">
+        <p className="type-caption font-semibold text-section-link uppercase">
           {dict.overline}
         </p>
-        <p className="text-[0.9375rem] leading-6 text-muted">{dict.subtitle}</p>
+        <p className="text-[0.9375rem] leading-6 text-soft">{dict.subtitle}</p>
       </div>
 
       {/* sr-only goes on a wrapper: a table ignores the 1px box and would
@@ -120,8 +123,8 @@ export function ProblemComparison({ dict }: { dict: ComparisonDict }) {
             <div
               key={row.label}
               className={cn(
-                "flex h-16 items-center text-sm font-medium text-body",
-                index > 0 && "border-t border-line",
+                "flex h-16 items-center text-sm font-medium text-label",
+                index > 0 && "border-t border-panel-divider",
               )}
             >
               {row.label}
@@ -137,14 +140,19 @@ export function ProblemComparison({ dict }: { dict: ComparisonDict }) {
               className={cn(
                 "relative rounded-[14px] border p-4 xl:p-0",
                 highlight
-                  ? "border-action bg-action/8 shadow-[0_8px_28px_-8px_rgb(47_91_211/0.45)] dark:bg-action/12"
-                  : "border-line bg-heading/3",
+                  ? "border-action bg-panel-highlight shadow-(--sp-panel-highlight-shadow)"
+                  : "border-panel-column-line bg-panel-column",
               )}
             >
               <div className="flex flex-col gap-2 xl:h-20 xl:px-5 xl:pt-6">
                 <div className="flex items-center gap-3">
                   {headerIcons[column]}
-                  <span className="text-[0.9375rem] leading-6 font-semibold text-heading">
+                  <span
+                    className={cn(
+                      "text-[0.9375rem] leading-6 font-semibold",
+                      highlight ? "text-strong" : "text-column",
+                    )}
+                  >
                     {dict.columns[column]}
                   </span>
                 </div>
@@ -161,19 +169,28 @@ export function ProblemComparison({ dict }: { dict: ComparisonDict }) {
                     key={row.label}
                     className={cn(
                       "flex items-center gap-3 xl:h-16 xl:px-5",
-                      rowIndex > 0 &&
-                        (highlight
-                          ? "xl:border-t xl:border-action/20"
-                          : "xl:border-t xl:border-line"),
+                      rowIndex > 0 && "xl:border-t xl:border-panel-divider",
                     )}
                   >
                     <StatusIcon status={statuses[rowIndex][columnIndex]} />
                     <div className="min-w-0">
-                      <p className="type-caption text-muted xl:hidden">{row.label}</p>
-                      <p className="text-sm leading-5 font-semibold text-heading">
+                      <p className="type-caption text-soft xl:hidden">{row.label}</p>
+                      <p
+                        className={cn(
+                          "text-sm leading-5 font-semibold",
+                          highlight ? "text-strong" : "text-cell",
+                        )}
+                      >
                         {row[column].main}
                       </p>
-                      <p className="type-caption text-muted">{row[column].sub}</p>
+                      <p
+                        className={cn(
+                          "type-caption",
+                          highlight ? "text-highlight-soft" : "text-soft",
+                        )}
+                      >
+                        {row[column].sub}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -186,7 +203,7 @@ export function ProblemComparison({ dict }: { dict: ComparisonDict }) {
       <div className="mt-5 text-center lg:mt-7">
         <Link
           href={topLinkHref.compare}
-          className="type-small inline-flex items-center gap-1 font-semibold text-link underline-offset-4 hover:underline"
+          className="type-small inline-flex items-center gap-1 font-semibold text-section-link underline-offset-4 hover:underline"
         >
           {dict.link}
           <ArrowRight aria-hidden="true" className="size-4" />
