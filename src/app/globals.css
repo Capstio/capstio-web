@@ -75,6 +75,10 @@
   --color-slate-900: #1a2036;
   --color-slate-950: #14161c;
 
+  /* Steel (muted blue-grey for section overlines) */
+  --color-steel-300: #8fa3d6;
+  --color-steel-600: #5b6b8c;
+
   /* Status ramps (only the steps the design uses) */
   --color-red-50: #fff5f4;
   --color-red-300: #fda29b;
@@ -130,6 +134,7 @@
   --color-body: var(--text-body);
   --color-muted: var(--text-muted);
   --color-accent: var(--text-accent);
+  --color-eyebrow: var(--text-eyebrow);
   --color-link: var(--text-link);
   --color-on-action: var(--text-on-action);
   --color-action: var(--action-primary);
@@ -168,6 +173,7 @@
   --text-body: var(--color-slate-800);
   --text-muted: var(--color-slate-500);
   --text-accent: var(--color-mint-700);
+  --text-eyebrow: var(--color-steel-600);
   --text-link: var(--color-blue-600);
   --text-on-action: var(--color-slate-0);
 
@@ -212,6 +218,7 @@
   --text-body: var(--color-neutral-200);
   --text-muted: var(--color-neutral-400);
   --text-accent: var(--color-mint-300);
+  --text-eyebrow: var(--color-steel-300);
   --text-link: var(--color-blue-300);
   --text-on-action: var(--color-slate-0);
 
@@ -280,6 +287,19 @@
   @media (min-width: 48rem) {
     font-size: 3rem;
     line-height: 3.625rem;
+  }
+}
+
+/*
+ * Section title (Figma "H2" of the home sections): 44px semibold from tablet
+ * up, 28px on mobile. Sits between type-h1 and type-h2 on purpose.
+ */
+@utility type-section-title {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  font-weight: 600;
+  @media (min-width: 48rem) {
+    font-size: 2.75rem;
   }
 }
 

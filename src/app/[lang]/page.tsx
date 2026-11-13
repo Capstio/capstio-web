@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { Hero } from "@/components/home/hero";
+import { Problem } from "@/components/home/problem";
 import { getDictionary } from "@/lib/dictionaries";
 import { hasLocale } from "@/lib/i18n";
 
@@ -8,5 +9,10 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   if (!hasLocale(lang)) notFound();
   const { home } = await getDictionary(lang);
 
-  return <Hero lang={lang} dict={home.hero} />;
+  return (
+    <>
+      <Hero lang={lang} dict={home.hero} />
+      <Problem dict={home.problem} />
+    </>
+  );
 }

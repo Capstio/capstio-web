@@ -88,6 +88,49 @@
       "videoAlt": "Capstio on a Mac: the Docker Compose, PM2 and systemd apps of a server in one list",
       "unmute": "Turn sound on",
       "mute": "Turn sound off"
+    },
+    "problem": {
+      "overline": "The problem",
+      "title": "Managing servers shouldn't feel like walking on eggshells.",
+      "subtitle": "Terminal commands are easy to mistype. Web dashboards are bloated to maintain. Capstio fixes both.",
+      "cards": {
+        "terminal": { "title": "Terminal Anxiety", "body": "Looking up commands takes time, and one mistyped {docker rm} or {systemctl} can take down production." },
+        "config": { "title": "Blind Config Edits", "body": "Config files are scattered and edited in nano. No backup, no syntax check: one wrong line and the service is down." },
+        "dashboard": { "title": "Heavy Web Dashboards", "body": "Web dashboards like Portainer need extra components installed on every server, then maintained and secured." }
+      },
+      "comparison": {
+        "overline": "The sweet spot between terminal & web panels",
+        "subtitle": "Capstio connects over standard SSH and turns everyday actions into buttons.",
+        "badge": "Agentless",
+        "link": "See the full comparison",
+        "columns": { "terminal": "Plain Terminal", "dashboard": "Web Dashboard (Portainer)", "capstio": "Capstio (Mac Native)" },
+        "rows": [
+          {
+            "label": "Remembering complex syntax",
+            "terminal": { "main": "Must remember syntax", "sub": "Every command and flag" },
+            "dashboard": { "main": "Not needed", "sub": "Operate with buttons" },
+            "capstio": { "main": "Not needed", "sub": "Mac UI with buttons" }
+          },
+          {
+            "label": "Agent on each server",
+            "terminal": { "main": "Installs nothing", "sub": "Plain SSH" },
+            "dashboard": { "main": "Must install on server", "sub": "Not a Mac app" },
+            "capstio": { "main": "No agent", "sub": "Standard SSH only" }
+          },
+          {
+            "label": "Seeing the command being run",
+            "terminal": { "main": "Transparent", "sub": "You type the command" },
+            "dashboard": { "main": "Depends on the tool", "sub": "Needs checking" },
+            "capstio": { "main": "See the real command", "sub": "Shows the equivalent command" }
+          },
+          {
+            "label": "Where the SSH key is stored",
+            "terminal": { "main": "File in ~/.ssh", "sub": "Encrypted only with a passphrase" },
+            "dashboard": { "main": "Depends on the tool", "sub": "Check where it's stored" },
+            "capstio": { "main": "macOS Keychain", "sub": "Stored on your Mac" }
+          }
+        ]
+      }
     }
   }
 }

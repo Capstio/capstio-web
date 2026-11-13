@@ -88,6 +88,49 @@
       "videoAlt": "Capstio trên Mac: các app Docker Compose, PM2 và systemd của một server trong cùng một danh sách",
       "unmute": "Bật âm thanh",
       "mute": "Tắt âm thanh"
+    },
+    "problem": {
+      "overline": "Vấn đề",
+      "title": "Vận hành server không cần phải nơm nớp lo gõ sai một lệnh.",
+      "subtitle": "Gõ lệnh terminal dễ sai, còn dashboard web thì phải cài thêm và tốn công bảo trì. Capstio xử lý được cả hai.",
+      "cards": {
+        "terminal": { "title": "Nỗi lo khi gõ lệnh", "body": "Tra lệnh mất thời gian, và chỉ cần gõ sai một lệnh {docker rm} hay {systemctl} cũng có thể làm hỏng production." },
+        "config": { "title": "Sửa config bằng nano", "body": "File config nằm rải rác, sửa bằng nano. Không có bản sao lưu, không kiểm tra cú pháp: sai một dòng là dịch vụ sập." },
+        "dashboard": { "title": "Dashboard web cồng kềnh", "body": "Dashboard web như Portainer phải cài thêm thành phần lên từng server, và bạn phải tự bảo trì, bảo mật." }
+      },
+      "comparison": {
+        "overline": "Nằm giữa terminal và dashboard web",
+        "subtitle": "Capstio kết nối bằng SSH chuẩn và biến thao tác thường dùng thành nút bấm.",
+        "badge": "Agentless",
+        "link": "Xem so sánh chi tiết",
+        "columns": { "terminal": "Terminal thuần", "dashboard": "Web Dashboard (Portainer)", "capstio": "Capstio (Mac Native)" },
+        "rows": [
+          {
+            "label": "Nhớ và gõ cú pháp phức tạp",
+            "terminal": { "main": "Phải nhớ cú pháp", "sub": "Từng lệnh và cờ lệnh" },
+            "dashboard": { "main": "Không cần", "sub": "Thao tác bằng nút bấm" },
+            "capstio": { "main": "Không cần", "sub": "Giao diện Mac, nút bấm" }
+          },
+          {
+            "label": "Cài thêm agent lên từng server",
+            "terminal": { "main": "Không cài gì", "sub": "SSH thuần" },
+            "dashboard": { "main": "Phải cài lên server", "sub": "Không phải app Mac" },
+            "capstio": { "main": "Không cài agent", "sub": "Chỉ dùng SSH chuẩn" }
+          },
+          {
+            "label": "Minh bạch câu lệnh đang chạy",
+            "terminal": { "main": "Minh bạch", "sub": "Bạn tự gõ lệnh" },
+            "dashboard": { "main": "Tuỳ từng công cụ", "sub": "Cần kiểm tra" },
+            "capstio": { "main": "Thấy lệnh thật", "sub": "Hiện lệnh tương đương" }
+          },
+          {
+            "label": "Lưu trữ SSH private key",
+            "terminal": { "main": "Tệp trong ~/.ssh", "sub": "Chỉ mã hoá khi đặt passphrase" },
+            "dashboard": { "main": "Tuỳ từng công cụ", "sub": "Cần kiểm tra nơi lưu" },
+            "capstio": { "main": "Keychain của macOS", "sub": "Lưu trên máy Mac của bạn" }
+          }
+        ]
+      }
     }
   }
 }
