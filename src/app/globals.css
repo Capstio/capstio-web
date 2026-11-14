@@ -183,12 +183,23 @@
   --color-column: var(--sp-text-column);
   --color-highlight-soft: var(--sp-text-highlight-soft);
   --color-section-link: var(--sp-text-link);
-  --color-band: var(--sp-band);
   --color-kicker: var(--sp-kicker);
   --color-point: var(--sp-point);
   --color-point-tile: var(--sp-point-tile);
   --color-point-icon: var(--sp-point-icon);
   --color-chip-solid: var(--sp-chip-solid);
+  --color-stage-line: var(--sp-stage-line);
+  --color-window: var(--sp-window);
+  --color-window-line: var(--sp-window-line);
+  --color-callout: var(--sp-callout);
+  --color-callout-line: var(--sp-callout-line);
+  --color-callout-good-line: var(--sp-callout-good-line);
+  --color-callout-text: var(--sp-callout-text);
+  --color-callout-meta: var(--sp-callout-meta);
+  --color-callout-tile: var(--sp-callout-tile);
+  --color-callout-button: var(--sp-callout-button);
+  --color-callout-check: var(--sp-callout-check);
+  --color-callout-check-mark: var(--sp-callout-check-mark);
   --color-icon-soft: var(--sp-icon-soft);
   --color-tile-warning: var(--color-orange-500);
   --color-tile-danger: var(--color-rose-500);
@@ -299,12 +310,29 @@
   --sp-unknown-bg: rgb(100 116 139 / 0.16);
   --sp-logo-ring: var(--color-ink-900);
   /* Feature sections (Figma "Feature - Unified Apps" and later) */
-  --sp-band: var(--color-ink-50);
   --sp-kicker: var(--color-blue-600);
-  --sp-point: var(--color-slate-0);
+  --sp-point: var(--color-ink-50);
   --sp-point-tile: rgb(47 91 211 / 0.1);
   --sp-point-icon: var(--color-blue-600);
   --sp-chip-solid: var(--color-ink-175);
+  /* Product visual: app window on a glow stage with floating callouts
+     (Figma "Feature - Safe Config", "Visual stage") */
+  --sp-stage: radial-gradient(closest-side, #b9ccff, #e4ebff 55%, var(--color-ink-100));
+  --sp-stage-line: rgb(15 23 42 / 0.08);
+  --sp-window: var(--color-ink-50);
+  --sp-window-line: rgb(15 23 42 / 0.1);
+  --sp-window-shadow: 0 24px 48px rgb(27 42 107 / 0.18);
+  --sp-callout: var(--color-slate-0);
+  --sp-callout-line: rgb(15 23 42 / 0.08);
+  --sp-callout-good-line: rgb(46 196 160 / 0.5);
+  --sp-callout-shadow: 0 8px 20px rgb(15 23 42 / 0.12);
+  --sp-callout-good-shadow: 0 8px 20px rgb(15 23 42 / 0.12);
+  --sp-callout-text: var(--color-ink-900);
+  --sp-callout-meta: var(--color-ink-500);
+  --sp-callout-tile: rgb(47 91 211 / 0.1);
+  --sp-callout-button: rgb(15 23 42 / 0.05);
+  --sp-callout-check: var(--color-mint-500);
+  --sp-callout-check-mark: var(--color-mint-950);
 }
 
 /* Dark theme, and the Dark context block which keeps dark values in both themes. */
@@ -386,12 +414,24 @@
   --sp-unknown: var(--color-ink-400);
   --sp-unknown-bg: rgb(148 163 184 / 0.18);
   --sp-logo-ring: var(--color-slate-0);
-  --sp-band: var(--color-navy-950);
   --sp-kicker: var(--color-blue-450);
   --sp-point: rgb(255 255 255 / 0.035);
   --sp-point-tile: rgb(47 91 211 / 0.22);
   --sp-point-icon: var(--color-blue-450);
   --sp-chip-solid: rgb(255 255 255 / 0.1);
+  --sp-stage: radial-gradient(closest-side, var(--color-blue-600), #15214d 50%, #0a0f1f);
+  --sp-stage-line: rgb(255 255 255 / 0.08);
+  --sp-window: #0b0f19;
+  --sp-window-line: rgb(255 255 255 / 0.14);
+  --sp-window-shadow: 0 24px 48px rgb(0 0 0 / 0.55), 0 0 60px rgb(47 91 211 / 0.25);
+  --sp-callout: #121a2e;
+  --sp-callout-line: rgb(255 255 255 / 0.14);
+  --sp-callout-good-line: rgb(46 196 160 / 0.35);
+  --sp-callout-shadow: 0 10px 24px rgb(0 0 0 / 0.45);
+  --sp-callout-good-shadow: 0 10px 24px rgb(0 0 0 / 0.45), 0 0 16px rgb(46 196 160 / 0.18);
+  --sp-callout-text: var(--color-ink-200);
+  --sp-callout-tile: rgb(59 130 246 / 0.18);
+  --sp-callout-button: rgb(255 255 255 / 0.08);
 }
 
 /* ----------------------------------------------------------------- 3. Contexts */

@@ -37,7 +37,7 @@
     "sshSecurity": { "title": "Bảo mật SSH", "description": "Phân tích đăng nhập, chặn IP một chạm" },
     "tunnels": { "title": "Tunnel", "description": "Local, Remote, SOCKS và kiểm tra đường truyền" },
     "ai": { "title": "AI", "description": "Đề xuất lệnh chỉ đọc, bạn cho phép từng lệnh" },
-    "teams": { "title": "Làm việc nhóm", "description": "Vault mã hoá đầu-cuối, phân quyền, nhật ký" }
+    "teams": { "title": "Làm việc nhóm", "description": "Vault mã hóa đầu-cuối, phân quyền, nhật ký" }
   },
   "solutions": {
     "agency": { "title": "Agency", "description": "Nhóm VPS theo khách, chia quyền, có nhật ký" },
@@ -120,13 +120,13 @@
           {
             "label": "Minh bạch câu lệnh đang chạy",
             "terminal": { "main": "Minh bạch", "sub": "Bạn tự gõ lệnh" },
-            "dashboard": { "main": "Tuỳ từng công cụ", "sub": "Cần kiểm tra" },
+            "dashboard": { "main": "Tùy từng công cụ", "sub": "Cần kiểm tra" },
             "capstio": { "main": "Thấy lệnh thật", "sub": "Hiện lệnh tương đương" }
           },
           {
             "label": "Lưu trữ SSH private key",
-            "terminal": { "main": "Tệp trong ~/.ssh", "sub": "Chỉ mã hoá khi đặt passphrase" },
-            "dashboard": { "main": "Tuỳ từng công cụ", "sub": "Cần kiểm tra nơi lưu" },
+            "terminal": { "main": "Tệp trong ~/.ssh", "sub": "Chỉ mã hóa khi đặt passphrase" },
+            "dashboard": { "main": "Tùy từng công cụ", "sub": "Cần kiểm tra nơi lưu" },
             "capstio": { "main": "Keychain của macOS", "sub": "Lưu trên máy Mac của bạn" }
           }
         ]
@@ -138,7 +138,7 @@
       "subtitle": "Không còn phải liên tục gõ {docker ps}, {pm2 status} hay {systemctl}. Capstio tự động quét qua SSH và quản lý mọi tiến trình đang chạy trên server, ngay từ máy Mac của bạn.",
       "points": [
         { "title": "Tự động nhận diện", "body": "Tự quét và nhận diện app đang chạy bằng Docker Compose, PM2 hay systemd. Chỉ dùng SSH chuẩn, không cài agent." },
-        { "title": "Thao tác chuẩn hóa", "body": "Khởi động lại, dừng hoặc cập nhật dịch vụ bằng cùng một nút bấm, luôn thấy lệnh shell thật đang chạy." },
+        { "title": "Thao tác chuẩn hóa", "body": "Khởi động lại hoặc dừng dịch vụ bằng cùng một nút bấm, luôn thấy lệnh shell thật đang chạy." },
         { "title": "Xem log tập trung", "body": "Xem log trực tiếp của từng app theo thời gian thực. Lọc nhanh dòng ERROR, WARN và tô sáng từ khóa quan trọng." }
       ],
       "imageAlt": "Tab Apps của Capstio liệt kê các app Docker Compose, PM2 và systemd của một server"

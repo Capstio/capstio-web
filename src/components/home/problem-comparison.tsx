@@ -72,6 +72,12 @@ const headerIcons: Record<Column, ReactNode> = {
 // can wrap. Below 1024px: the same cards stack (Figma mobile).
 // The visual grid is hidden from screen readers, which get a real table.
 export function ProblemComparison({ dict }: { dict: ComparisonDict }) {
+  if (dict.rows.length !== statuses.length) {
+    throw new Error(
+      `Problem comparison has ${dict.rows.length} rows in the dictionary but ${statuses.length} in statuses.`,
+    );
+  }
+
   return (
     <div className="rounded-[20px] border border-panel-line bg-panel p-4 shadow-(--sp-panel-shadow) lg:px-10 lg:pt-7 lg:pb-5">
       <div className="flex flex-col items-center gap-3 text-center lg:gap-2.5">
@@ -81,8 +87,6 @@ export function ProblemComparison({ dict }: { dict: ComparisonDict }) {
         <p className="text-[0.9375rem] leading-6 text-soft">{dict.subtitle}</p>
       </div>
 
-      {/* sr-only goes on a wrapper: a table ignores the 1px box and would
-          widen the page. */}
       <div className="sr-only">
         <table>
           <caption>{dict.overline}</caption>

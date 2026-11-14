@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Hero } from "@/components/home/hero";
 import { Problem } from "@/components/home/problem";
+import { SafeConfig } from "@/components/home/safe-config";
 import { UnifiedApps } from "@/components/home/unified-apps";
 import { getDictionary } from "@/lib/dictionaries";
 import { hasLocale } from "@/lib/i18n";
@@ -15,6 +16,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       <Hero lang={lang} dict={home.hero} />
       <Problem dict={home.problem} />
       <UnifiedApps dict={home.unifiedApps} />
+      <SafeConfig dict={home.safeConfig} />
     </>
   );
 }
