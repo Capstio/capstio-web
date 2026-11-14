@@ -1,14 +1,29 @@
 "use client";
 
 import { Check, ChevronDown, Globe } from "lucide-react";
-import { useEffect, useId, useRef, useState, useTransition } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
-import { hasLocale, locales, type Locale } from "@/lib/i18n";
-import { setLocale } from "@/lib/set-locale";
+import {
+  hasLocale,
+  localeCookie,
+  localeCookieMaxAge,
+  locales,
+  type Locale,
+} from "@/lib/i18n";
 
 // Custom listbox dropdown (the native <select> popup cannot be styled).
 // Keyboard: Arrow keys, Home, End, Enter, Space, Escape and Tab.
-// The language is stored in a cookie by a Server Action and the page re-renders in place, so the URL never changes.
+// The language is stored in a cookie and the URL never changes. The proxy
+// picks the language from the request cookie, so the cookie is written first
+// and the page is then reloaded. A full reload, not router.refresh(): the
+// language is the root layout's [lang] param, so a client refresh would
+// rebuild <html> in React, which re-renders the theme <script> and makes
+// React report it.
+function switchLocale(locale: Locale) {
+  document.cookie = `${localeCookie}=${locale}; path=/; max-age=${localeCookieMaxAge}; samesite=lax`;
+  window.location.reload();
+}
+
 export function LanguageSelect({
   lang,
   label,
@@ -32,7 +47,6 @@ export function LanguageSelect({
   placement?: "bottom" | "top";
   className?: string;
 }) {
-  const [pending, startTransition] = useTransition();
   const listId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -64,7 +78,7 @@ export function LanguageSelect({
     setOpen(false);
     buttonRef.current?.focus();
     if (next === lang || !hasLocale(next)) return;
-    startTransition(() => setLocale(next));
+    switchLocale(next);
   }
 
   function onOptionKeyDown(event: React.KeyboardEvent, locale: Locale) {
@@ -110,7 +124,6 @@ export function LanguageSelect({
         aria-label={label}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-busy={pending}
         aria-controls={open ? listId : undefined}
         onClick={() => (open ? setOpen(false) : openList())}
         onKeyDown={(event) => {

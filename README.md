@@ -20,6 +20,7 @@ Next.js ở đây là phiên bản mới, khác nhiều so với bản cũ. Đ�
 - `src/lib/site-nav.ts`: cấu trúc điều hướng dùng chung cho header và footer (nhãn nằm trong từ điển).
 - `src/components/ui/`: component cơ bản (Button, StatusBadge, CodeStrip, Card, Section, Container, Logo, Overline).
 - `src/components/layout/`: Header (mega menu, kính khi cuộn, menu mobile), Footer, chọn ngôn ngữ, đổi giao diện.
+- `src/components/home/`: các section của trang chủ, mỗi section một file theo frame Figma tương ứng (Hero có video từ Mux, Problem có bảng so sánh, Unified Apps có ảnh app tràn ra mép phải). Ảnh chụp app của các section tính năng nằm ở `public/features/`.
 - `public/brand/`: logo lấy từ bộ brand của app macOS (`../macos/docs/brand/logo`).
 
 ## Design token

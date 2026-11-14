@@ -37,7 +37,7 @@
     "sshSecurity": { "title": "Bảo mật SSH", "description": "Phân tích đăng nhập, chặn IP một chạm" },
     "tunnels": { "title": "Tunnel", "description": "Local, Remote, SOCKS và kiểm tra đường truyền" },
     "ai": { "title": "AI", "description": "Đề xuất lệnh chỉ đọc, bạn cho phép từng lệnh" },
-    "teams": { "title": "Làm việc nhóm", "description": "Vault mã hoá đầu-cuối, phân quyền, nhật ký" }
+    "teams": { "title": "Làm việc nhóm", "description": "Vault mã hóa đầu-cuối, phân quyền, nhật ký" }
   },
   "solutions": {
     "agency": { "title": "Agency", "description": "Nhóm VPS theo khách, chia quyền, có nhật ký" },
@@ -74,9 +74,89 @@
     }
   },
   "home": {
-    "heroDemo": {
-      "label": "Hero (demo)",
-      "note": "Chỗ đặt mockup của hero"
+    "hero": {
+      "title": "Quản lý mọi server từ một chiếc Mac,",
+      "titleAccent": "không cần nhớ lệnh.",
+      "cta": "Tải về cho macOS",
+      "requirement": "macOS 15+ · Không cài agent",
+      "modesLabel": "Capstio quản lý những gì",
+      "modes": {
+        "apps": { "label": "Apps", "subtitle": "Docker, PM2, systemd, file config và terminal trong một app native. Chỉ cần SSH, không cài agent." },
+        "docker": { "label": "Docker", "subtitle": "Container, image, volume và network trong một app native. Xem trước dung lượng thu hồi được trước khi dọn Docker." },
+        "terminal": { "label": "Terminal", "subtitle": "Terminal nhiều tab, chia đôi và thanh lệnh nhanh ngay trong app. Cảnh báo khi bạn gõ hoặc dán lệnh nguy hiểm." }
+      },
+      "videoAlt": "Capstio trên Mac: các app Docker Compose, PM2 và systemd của một server trong cùng một danh sách",
+      "unmute": "Bật âm thanh",
+      "mute": "Tắt âm thanh"
+    },
+    "problem": {
+      "overline": "Vấn đề",
+      "title": "Vận hành server không cần phải nơm nớp lo gõ sai một lệnh.",
+      "subtitle": "Gõ lệnh terminal dễ sai, còn dashboard web thì phải cài thêm và tốn công bảo trì. Capstio xử lý được cả hai.",
+      "cards": {
+        "terminal": { "title": "Nỗi lo khi gõ lệnh", "body": "Tra lệnh mất thời gian, và chỉ cần gõ sai một lệnh {docker rm} hay {systemctl} cũng có thể làm hỏng production." },
+        "config": { "title": "Sửa config bằng nano", "body": "File config nằm rải rác, sửa bằng nano. Không có bản sao lưu, không kiểm tra cú pháp: sai một dòng là dịch vụ sập." },
+        "dashboard": { "title": "Dashboard web cồng kềnh", "body": "Dashboard web như Portainer phải cài thêm thành phần lên từng server, và bạn phải tự bảo trì, bảo mật." }
+      },
+      "comparison": {
+        "overline": "Nằm giữa terminal và dashboard web",
+        "subtitle": "Capstio kết nối bằng SSH chuẩn và biến thao tác thường dùng thành nút bấm.",
+        "badge": "Agentless",
+        "link": "Xem so sánh chi tiết",
+        "columns": { "terminal": "Terminal thuần", "dashboard": "Web Dashboard (Portainer)", "capstio": "Capstio (Mac Native)" },
+        "rows": [
+          {
+            "label": "Nhớ và gõ cú pháp phức tạp",
+            "terminal": { "main": "Phải nhớ cú pháp", "sub": "Từng lệnh và cờ lệnh" },
+            "dashboard": { "main": "Không cần", "sub": "Thao tác bằng nút bấm" },
+            "capstio": { "main": "Không cần", "sub": "Giao diện Mac, nút bấm" }
+          },
+          {
+            "label": "Cài thêm agent lên từng server",
+            "terminal": { "main": "Không cài gì", "sub": "SSH thuần" },
+            "dashboard": { "main": "Phải cài lên server", "sub": "Không phải app Mac" },
+            "capstio": { "main": "Không cài agent", "sub": "Chỉ dùng SSH chuẩn" }
+          },
+          {
+            "label": "Minh bạch câu lệnh đang chạy",
+            "terminal": { "main": "Minh bạch", "sub": "Bạn tự gõ lệnh" },
+            "dashboard": { "main": "Tùy từng công cụ", "sub": "Cần kiểm tra" },
+            "capstio": { "main": "Thấy lệnh thật", "sub": "Hiện lệnh tương đương" }
+          },
+          {
+            "label": "Lưu trữ SSH private key",
+            "terminal": { "main": "Tệp trong ~/.ssh", "sub": "Chỉ mã hóa khi đặt passphrase" },
+            "dashboard": { "main": "Tùy từng công cụ", "sub": "Cần kiểm tra nơi lưu" },
+            "capstio": { "main": "Keychain của macOS", "sub": "Lưu trên máy Mac của bạn" }
+          }
+        ]
+      }
+    },
+    "unifiedApps": {
+      "overline": "Quản lý theo ứng dụng",
+      "title": "Docker, PM2, systemd.\nGom về một danh sách duy nhất.",
+      "subtitle": "Không còn phải liên tục gõ {docker ps}, {pm2 status} hay {systemctl}. Capstio tự động quét qua SSH và quản lý mọi tiến trình đang chạy trên server, ngay từ máy Mac của bạn.",
+      "points": [
+        { "title": "Tự động nhận diện", "body": "Tự quét và nhận diện app đang chạy bằng Docker Compose, PM2 hay systemd. Chỉ dùng SSH chuẩn, không cài agent." },
+        { "title": "Thao tác chuẩn hóa", "body": "Khởi động lại hoặc dừng dịch vụ bằng cùng một nút bấm, luôn thấy lệnh shell thật đang chạy." },
+        { "title": "Xem log tập trung", "body": "Xem log trực tiếp của từng app theo thời gian thực. Lọc nhanh dòng ERROR, WARN và tô sáng từ khóa quan trọng." }
+      ],
+      "imageAlt": "Tab Apps của Capstio liệt kê các app Docker Compose, PM2 và systemd của một server"
+    },
+    "safeConfig": {
+      "overline": "Sửa config an toàn",
+      "title": "Sửa Nginx, YAML và .env mà không làm sập production.",
+      "subtitle": "Thôi sửa mò bằng nano. Capstio kiểm tra cú pháp ngay khi gõ, tự sao lưu trên server trước mỗi lần lưu và cho khôi phục một chạm.",
+      "points": [
+        { "title": "Kiểm tra cú pháp khi gõ", "body": "Báo lỗi cú pháp theo số dòng ngay khi gõ, cho YAML, .env, Nginx, JSON và Caddyfile." },
+        { "title": "Tự sao lưu & so sánh diff", "body": "Mỗi lần lưu đều tạo bản sao lưu trên server. Xem diff song song và khôi phục một chạm." },
+        { "title": "Che giá trị bí mật", "body": "Tự che giá trị bí mật trong file .env, chia sẻ màn hình khi sửa config an toàn hơn." }
+      ],
+      "syntaxValid": "Cú pháp hợp lệ · .env",
+      "backupTitle": "Đã sao lưu trên server",
+      "backupMeta": ".env · 13:52 · 3 phiên bản",
+      "restore": "Khôi phục",
+      "imageAlt": "Sửa file .env trong Capstio: giá trị bí mật được che và kiểm tra cú pháp hợp lệ"
     }
   }
 }
