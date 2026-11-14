@@ -157,6 +157,28 @@
       "backupMeta": ".env · 13:52 · 3 phiên bản",
       "restore": "Khôi phục",
       "imageAlt": "Sửa file .env trong Capstio: giá trị bí mật được che và kiểm tra cú pháp hợp lệ"
+    },
+    "bento": {
+      "overline": "Tất cả trong một app Mac",
+      "title": "Mọi công cụ bạn cần. Trong một app Mac duy nhất.",
+      "subtitle": "Terminal, recipe, log, cảnh báo, bảo mật SSH và tunnel trong một app native. Chỉ cần SSH, không cài agent lên VPS.",
+      "fleet": {
+        "overline": "Toàn bộ VPS",
+        "title": "Mọi server, một cửa sổ.",
+        "body": "CPU, RAM, disk và container của từng host.",
+        "link": "Xem tất cả tính năng",
+        "imageAlt": "Màn hình Toàn bộ VPS của Capstio: sáu server với mức dùng CPU, RAM, disk cùng tổng số container, app và cảnh báo"
+      },
+      "recipes": { "body": "recipe dựng sẵn, có nhãn rủi ro, chạy trên nhiều host.", "link": "Xem thêm về Recipes" },
+      "agentless": { "body": "agent cài lên VPS. Chỉ dùng SSH chuẩn." },
+      "terminal": { "body": "Terminal nhiều tab, chia đôi. Phím tắt không bị terminal nuốt, chuyển tab bằng ⌘1 đến ⌘0.", "link": "Xem thêm về Terminal" },
+      "strip": {
+        "logs": { "title": "Logs", "body": "Lọc lỗi, tô sáng từ khóa." },
+        "alerts": { "title": "Cảnh báo", "body": "Disk, RAM vượt ngưỡng khi app đang mở." },
+        "sshSecurity": { "title": "Bảo mật SSH", "body": "Chặn IP lạ chỉ một chạm." },
+        "tunnels": { "title": "Tunnel", "body": "Local, Remote, SOCKS." },
+        "ai": { "title": "AI trong terminal", "body": "Lệnh chỉ đọc, bạn duyệt từng lệnh." }
+      }
     }
   }
 }

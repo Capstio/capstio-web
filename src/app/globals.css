@@ -106,6 +106,8 @@
   --color-rose-400: #f87171;
   --color-rose-500: #ef4444;
   --color-rose-600: #dc2626;
+  --color-violet-400: #a78bfa;
+  --color-pink-400: #f472b6;
 
   /* Status ramps (only the steps the design uses) */
   --color-red-50: #fff5f4;
@@ -204,6 +206,15 @@
   --color-tile-warning: var(--color-orange-500);
   --color-tile-danger: var(--color-rose-500);
   --color-tile-info: var(--color-azure-500);
+  --color-tile-accent: var(--color-blue-450);
+  --color-tile-success: var(--color-mint-500);
+  --color-tile-violet: var(--color-violet-400);
+  --color-tile-pink: var(--color-pink-400);
+  --color-bento-card: var(--sp-bento-card);
+  --color-bento-line: var(--sp-bento-line);
+  --color-key-line: var(--sp-key-line);
+  --color-key-glyph: var(--sp-key-glyph);
+  --color-key-sep: var(--sp-key-sep);
   --color-good: var(--sp-good);
   --color-good-bg: var(--sp-good-bg);
   --color-bad: var(--sp-bad);
@@ -333,6 +344,22 @@
   --sp-callout-button: rgb(15 23 42 / 0.05);
   --sp-callout-check: var(--color-mint-500);
   --sp-callout-check-mark: var(--color-mint-950);
+  /* Bento grid (Figma "Feature - Bento Grid") */
+  /* Figma puts white cards on a light grey band; the page is white here, so
+     the cards take the light grey instead. */
+  --sp-bento-card: var(--color-ink-50);
+  --sp-bento-line: rgb(15 23 42 / 0.08);
+  --sp-bento-hero: radial-gradient(120% 120% at 0% 0%, #e6ecff, var(--color-ink-50) 60%);
+  /* Lifts the white Fleet window off the light card; follows its rounded
+     corners because the image is drawn with object-contain. */
+  --sp-fleet-shadow: drop-shadow(0 4px 12px rgb(15 23 42 / 0.08)) drop-shadow(0 0 1px rgb(15 23 42 / 0.12));
+  --sp-number: linear-gradient(to bottom, var(--color-ink-900), var(--color-ink-500));
+  --sp-number-good: linear-gradient(to bottom, #14b8a6, #0b7f66);
+  --sp-key: linear-gradient(to bottom, var(--color-slate-0), var(--color-ink-100));
+  --sp-key-line: rgb(15 23 42 / 0.12);
+  --sp-key-shadow: inset 0 -4px 0 rgb(15 23 42 / 0.1), 0 3px 8px rgb(15 23 42 / 0.08);
+  --sp-key-glyph: var(--color-ink-900);
+  --sp-key-sep: var(--color-ink-400);
 }
 
 /* Dark theme, and the Dark context block which keeps dark values in both themes. */
@@ -432,6 +459,17 @@
   --sp-callout-text: var(--color-ink-200);
   --sp-callout-tile: rgb(59 130 246 / 0.18);
   --sp-callout-button: rgb(255 255 255 / 0.08);
+  --sp-bento-card: var(--color-navy-900);
+  --sp-bento-line: rgb(255 255 255 / 0.08);
+  --sp-bento-hero: radial-gradient(120% 120% at 0% 0%, #1b2a55, var(--color-navy-900) 60%);
+  --sp-fleet-shadow: none;
+  --sp-number: linear-gradient(to bottom, var(--color-slate-0), #7c8ba8);
+  --sp-number-good: linear-gradient(to bottom, #5eead4, #1e9e82);
+  --sp-key: linear-gradient(to bottom, #232b40, #151b2b);
+  --sp-key-line: rgb(255 255 255 / 0.1);
+  --sp-key-shadow: inset 0 -4px 0 rgb(0 0 0 / 0.45), inset 0 1px 0 rgb(255 255 255 / 0.08), 0 4px 10px rgb(0 0 0 / 0.35);
+  --sp-key-glyph: var(--color-ink-200);
+  --sp-key-sep: var(--color-ink-600);
 }
 
 /* ----------------------------------------------------------------- 3. Contexts */

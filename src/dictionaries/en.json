@@ -157,6 +157,28 @@
       "backupMeta": ".env · 13:52 · 3 versions",
       "restore": "Restore",
       "imageAlt": "Editing a .env file in Capstio: secret values are hidden and the syntax check passes"
+    },
+    "bento": {
+      "overline": "All in one Mac app",
+      "title": "Every tool you need. In one Mac app.",
+      "subtitle": "Terminal, recipes, logs, alerts, SSH security and tunnels in one native app. Just SSH, no agent on your VPS.",
+      "fleet": {
+        "overline": "Fleet",
+        "title": "Every server, one window.",
+        "body": "CPU, RAM, disk and containers for every host.",
+        "link": "See all features",
+        "imageAlt": "The Capstio All VPS view: six servers with their CPU, RAM and disk use, and totals for containers, apps and alerts"
+      },
+      "recipes": { "body": "built-in recipes with risk labels, run across many hosts.", "link": "Learn more about Recipes" },
+      "agentless": { "body": "agents installed on your VPS. Plain SSH only." },
+      "terminal": { "body": "Tabs and split panes. Shortcuts aren't swallowed by the terminal, so ⌘1 to ⌘0 switch tabs.", "link": "Learn more about Terminal" },
+      "strip": {
+        "logs": { "title": "Logs", "body": "Filter errors, highlight keywords." },
+        "alerts": { "title": "Alerts", "body": "Disk and RAM thresholds while the app is open." },
+        "sshSecurity": { "title": "SSH security", "body": "Block an IP in one click." },
+        "tunnels": { "title": "Tunnels", "body": "Local, Remote, SOCKS." },
+        "ai": { "title": "AI in the terminal", "body": "Read-only commands, you approve each one." }
+      }
     }
   }
 }

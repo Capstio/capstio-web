@@ -3,9 +3,9 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
-import { themeStorageKey } from "@/components/layout/theme-toggle";
 import { getDictionary } from "@/lib/dictionaries";
 import { hasLocale, locales } from "@/lib/i18n";
+import { themeStorageKey } from "@/lib/theme";
 import "../globals.css";
 
 // Inter covers Latin, Vietnamese, Cyrillic and Greek; JetBrains Mono is for commands and paths.

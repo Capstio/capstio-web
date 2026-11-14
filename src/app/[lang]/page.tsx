@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { BentoGrid } from "@/components/home/bento-grid";
 import { Hero } from "@/components/home/hero";
 import { Problem } from "@/components/home/problem";
 import { SafeConfig } from "@/components/home/safe-config";
@@ -17,6 +18,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       <Problem dict={home.problem} />
       <UnifiedApps dict={home.unifiedApps} />
       <SafeConfig dict={home.safeConfig} />
+      <BentoGrid dict={home.bento} />
     </>
   );
 }

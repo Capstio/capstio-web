@@ -2,8 +2,7 @@
 
 import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/cn";
-
-export const themeStorageKey = "capstio-theme";
+import { themeStorageKey } from "@/lib/theme";
 
 // Toggles the `dark` class on <html> and remembers the choice. Both icons are
 // always rendered and swapped with CSS, so the server markup never depends on
