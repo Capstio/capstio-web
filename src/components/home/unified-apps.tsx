@@ -70,6 +70,13 @@ export function UnifiedApps({ dict }: { dict: UnifiedAppsDict }) {
               placeholder="blur"
               className="absolute top-0 left-0 hidden h-auto w-[208%] max-w-450 lg:w-[200%] dark:block"
             />
+            {/* The window is cut by the end of the section; fade its lower
+                part into the page background so it does not end on a hard
+                edge above the next section. */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-b from-transparent to-page"
+            />
           </div>
         </div>
       </Container>
